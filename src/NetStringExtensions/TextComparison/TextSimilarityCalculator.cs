@@ -1,3 +1,5 @@
+using NetStringExtensions.TextComparison.Algorithms;
+
 namespace NetStringExtensions.TextComparison;
 
 public class TextSimilarityCalculator
@@ -10,13 +12,13 @@ public class TextSimilarityCalculator
         switch (textSimilarityAlgorithm)
         {
             case TextSimilarityAlgorithm.CosineSimilarity:
-                break;
+                return CosineSimilarity.Calculate(a, b);
             case TextSimilarityAlgorithm.JaccardSimilarity:
-                break;
+                return JaccardSimilarity.Calculate(a, b);
             case TextSimilarityAlgorithm.LevenshteinDistance:
-                break;
+                return LevenshteinSimilarity.Calculate(a, b);
             case TextSimilarityAlgorithm.JaroWinklerDistance:
-                break;
+                return JaroWinklerSimilarity.Calculate(a, b);
             case TextSimilarityAlgorithm.BM25:
                 break;
             case TextSimilarityAlgorithm.JansenShannonDivergence:
