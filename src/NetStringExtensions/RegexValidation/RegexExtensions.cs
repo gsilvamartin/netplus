@@ -153,4 +153,52 @@ public static class StringExtensions
             return false;
         }
     }
+
+    public static bool IsUpperCase(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var upperCaseRegex = new Regex(@"^[A-Z]+$");
+            return upperCaseRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool IsLowerCase(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var lowerCaseRegex = new Regex(@"^[a-z]+$");
+            return lowerCaseRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+    
+    public static bool IsStrongPassword(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var strongPasswordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,15}$");
+            return strongPasswordRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
 }
