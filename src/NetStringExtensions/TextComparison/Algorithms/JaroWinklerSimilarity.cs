@@ -1,6 +1,6 @@
 namespace NetStringExtensions.TextComparison.Algorithms;
 
-public class JaroWinklerSimilarity
+public static class JaroWinklerSimilarity
 {
     public static double Calculate(string str1, string str2)
     {
@@ -9,10 +9,7 @@ public class JaroWinklerSimilarity
         var jaroSimilarity = CalculateJaroSimilarity(str1, str2);
         var commonPrefixLength = GetCommonPrefixLength(str1, str2);
 
-        var winklerDistance = jaroSimilarity +
-                              (commonPrefixLength * scalingFactor * (1 - jaroSimilarity));
-
-        return winklerDistance;
+        return jaroSimilarity + commonPrefixLength * scalingFactor * (1 - jaroSimilarity);
     }
 
     private static double CalculateJaroSimilarity(string str1, string str2)

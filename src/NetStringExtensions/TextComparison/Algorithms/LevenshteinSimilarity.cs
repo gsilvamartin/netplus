@@ -1,6 +1,6 @@
 namespace NetStringExtensions.TextComparison.Algorithms;
 
-public class LevenshteinSimilarity
+public static class LevenshteinSimilarity
 {
     public static int Calculate(string source, string target)
     {

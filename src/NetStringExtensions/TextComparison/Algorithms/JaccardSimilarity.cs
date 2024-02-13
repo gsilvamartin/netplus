@@ -1,6 +1,6 @@
 namespace NetStringExtensions.TextComparison.Algorithms;
 
-public class JaccardSimilarity
+public static class JaccardSimilarity
 {
     public static double Calculate(string text1, string text2)
     {

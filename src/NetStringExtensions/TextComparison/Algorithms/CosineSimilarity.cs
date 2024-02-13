@@ -1,6 +1,6 @@
 namespace NetStringExtensions.TextComparison.Algorithms;
 
-public class CosineSimilarity
+public static class CosineSimilarity
 {
     public static double Calculate(string text1, string text2)
     {

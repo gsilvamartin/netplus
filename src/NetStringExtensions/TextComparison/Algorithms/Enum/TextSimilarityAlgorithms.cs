@@ -1,4 +1,4 @@
-namespace NetStringExtensions.TextComparison;
+namespace NetStringExtensions.TextComparison.Algorithms.Enum;
 
 public enum TextSimilarityAlgorithm
 {
@@ -6,8 +6,6 @@ public enum TextSimilarityAlgorithm
     JaccardSimilarity,
     LevenshteinDistance,
     JaroWinklerDistance,
-    BM25,
     JansenShannonDivergence,
-    SentenceEmbeddings,
     NgramOverlap
 }

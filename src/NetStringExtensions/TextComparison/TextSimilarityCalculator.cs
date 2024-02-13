@@ -1,38 +1,25 @@
 using NetStringExtensions.TextComparison.Algorithms;
+using NetStringExtensions.TextComparison.Algorithms.Enum;
 
 namespace NetStringExtensions.TextComparison;
 
-public class TextSimilarityCalculator
+public static class TextSimilarityCalculator
 {
     public static double CalculateSimilarity(
         string a,
         string b,
-        TextSimilarityAlgorithm textSimilarityAlgorithm = TextSimilarityAlgorithm.JaccardSimilarity)
+        TextSimilarityAlgorithm? textSimilarityAlgorithm = TextSimilarityAlgorithm.JaccardSimilarity)
     {
-        switch (textSimilarityAlgorithm)
+        return textSimilarityAlgorithm switch
         {
-            case TextSimilarityAlgorithm.CosineSimilarity:
-                return CosineSimilarity.Calculate(a, b);
-            case TextSimilarityAlgorithm.JaccardSimilarity:
-                return JaccardSimilarity.Calculate(a, b);
-            case TextSimilarityAlgorithm.LevenshteinDistance:
-                return LevenshteinSimilarity.Calculate(a, b);
-            case TextSimilarityAlgorithm.JaroWinklerDistance:
-                return JaroWinklerSimilarity.Calculate(a, b);
-            case TextSimilarityAlgorithm.BM25:
-                break;
-            case TextSimilarityAlgorithm.JansenShannonDivergence:
-                break;
-            case TextSimilarityAlgorithm.SentenceEmbeddings:
-                break;
-            case TextSimilarityAlgorithm.NgramOverlap:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(
-                    nameof(textSimilarityAlgorithm),
-                    textSimilarityAlgorithm,
-                    "Invalid text similarity algorithm."
-                );
-        }
+            TextSimilarityAlgorithm.CosineSimilarity => CosineSimilarity.Calculate(a, b),
+            TextSimilarityAlgorithm.JaccardSimilarity => JaccardSimilarity.Calculate(a, b),
+            TextSimilarityAlgorithm.LevenshteinDistance => LevenshteinSimilarity.Calculate(a, b),
+            TextSimilarityAlgorithm.JaroWinklerDistance => JaroWinklerSimilarity.Calculate(a, b),
+            TextSimilarityAlgorithm.JansenShannonDivergence => JansenShannonSimilarity.Calculate(a, b),
+            TextSimilarityAlgorithm.NgramOverlap => NgramSimilarity.Calculate(a, b),
+            _ => throw new ArgumentOutOfRangeException(nameof(textSimilarityAlgorithm), textSimilarityAlgorithm,
+                "Invalid text similarity algorithm.")
+        };
     }
 }
