@@ -186,6 +186,7 @@ public static class StringExtensions
         }
     }
     
+    
     public static bool IsStrongPassword(this string input)
     {
         if (string.IsNullOrWhiteSpace(input))
