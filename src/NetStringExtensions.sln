@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStringExtensions", "NetStringExtensions\NetStringExtensions.csproj", "{FF7F8138-0069-485F-B25F-D049A9DC4D96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStringExtensions.Tests", "NetStringExtensions.Tests\NetStringExtensions.Tests.csproj", "{9AA59F5E-1110-4E48-BE15-82AD51C01527}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FF7F8138-0069-485F-B25F-D049A9DC4D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF7F8138-0069-485F-B25F-D049A9DC4D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF7F8138-0069-485F-B25F-D049A9DC4D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA59F5E-1110-4E48-BE15-82AD51C01527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA59F5E-1110-4E48-BE15-82AD51C01527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA59F5E-1110-4E48-BE15-82AD51C01527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA59F5E-1110-4E48-BE15-82AD51C01527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

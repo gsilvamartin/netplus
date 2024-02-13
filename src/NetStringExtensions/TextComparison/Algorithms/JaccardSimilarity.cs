@@ -10,6 +10,9 @@ public static class JaccardSimilarity
         double intersectionSize = GetIntersectionSize(set1, set2);
         double unionSize = GetUnionSize(set1, set2);
 
+        if (text1 == text2)
+            return 1.0;
+
         if (unionSize == 0)
             return 0.0;
 
