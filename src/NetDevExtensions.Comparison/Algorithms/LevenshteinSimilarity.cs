@@ -1,4 +1,4 @@
-namespace NetDevExtensions.String.TextComparison.Algorithms;
+namespace NetDevExtensions.Comparison.Algorithms;
 
 public static class LevenshteinSimilarity
 {

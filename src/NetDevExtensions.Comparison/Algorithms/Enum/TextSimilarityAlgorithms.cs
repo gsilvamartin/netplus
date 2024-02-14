@@ -1,4 +1,4 @@
-namespace NetDevExtensions.String.TextComparison.Algorithms.Enum;
+namespace NetDevExtensions.Comparison.Algorithms.Enum;
 
 public enum TextSimilarityAlgorithm
 {
