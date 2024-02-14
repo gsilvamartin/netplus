@@ -2,8 +2,103 @@ using System.Text.RegularExpressions;
 
 namespace NetDevExtensions.String;
 
-public static class RegexExtensions
+public static class StringValidators
 {
+    public static bool IsDate(this string input)
+    {
+        return !string.IsNullOrWhiteSpace(input) && DateTime.TryParse(input, out _);
+    }
+
+    public static bool IsDateTime(this string input)
+    {
+        return !string.IsNullOrWhiteSpace(input) && DateTime.TryParse(input, out _);
+    }
+
+    public static bool IsUnicode(this string input)
+    {
+        return !string.IsNullOrWhiteSpace(input) && input.Any(c => c > 127);
+    }
+
+    public static bool IsFileExtension(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var fileExtensionRegex = new Regex(@"^\.[a-zA-Z0-9]+$");
+            return fileExtensionRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool IsAlphaNumeric(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var alphaNumericRegex = new Regex(@"^[a-zA-Z0-9]+$");
+            return alphaNumericRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool IsAlphabetic(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var alphabeticRegex = new Regex(@"^[a-zA-Z]+$");
+            return alphabeticRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool IsNumeric(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var numericRegex = new Regex(@"^[0-9]+$");
+            return numericRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool IsHexadecimal(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var hexadecimalRegex = new Regex(@"^(0x)?[0-9a-fA-F]+$");
+            return hexadecimalRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
     public static bool IsValidEmail(this string input)
     {
         if (string.IsNullOrWhiteSpace(input))
