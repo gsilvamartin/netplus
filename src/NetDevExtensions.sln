@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStringExtensions", "NetStringExtensions\NetStringExtensions.csproj", "{FF7F8138-0069-485F-B25F-D049A9DC4D96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDevExtensions.String", "NetDevExtensions.String\NetDevExtensions.String.csproj", "{FF7F8138-0069-485F-B25F-D049A9DC4D96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetStringExtensions.Tests", "NetStringExtensions.Tests\NetStringExtensions.Tests.csproj", "{9AA59F5E-1110-4E48-BE15-82AD51C01527}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDevExtensions.Tests", "NetDevExtensions.Tests\NetDevExtensions.Tests.csproj", "{9AA59F5E-1110-4E48-BE15-82AD51C01527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

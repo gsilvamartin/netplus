@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace NetStringExtensions.RegexValidation;
+namespace NetDevExtensions.String.Validation;
 
 public static class StringExtensions
 {
@@ -185,8 +185,7 @@ public static class StringExtensions
             return false;
         }
     }
-    
-    
+
     public static bool IsStrongPassword(this string input)
     {
         if (string.IsNullOrWhiteSpace(input))

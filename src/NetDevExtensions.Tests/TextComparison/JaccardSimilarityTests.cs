@@ -1,4 +1,4 @@
-using NetStringExtensions.TextComparison.Algorithms;
+using NetDevExtensions.String.TextComparison.Algorithms;
 
 namespace NetStringExtensions.Tests.TextComparison;
 

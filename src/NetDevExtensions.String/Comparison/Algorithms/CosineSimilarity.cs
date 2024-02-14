@@ -1,4 +1,4 @@
-namespace NetStringExtensions.TextComparison.Algorithms;
+namespace NetDevExtensions.String.TextComparison.Algorithms;
 
 public static class CosineSimilarity
 {

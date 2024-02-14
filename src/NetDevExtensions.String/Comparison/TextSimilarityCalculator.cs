@@ -1,7 +1,7 @@
-using NetStringExtensions.TextComparison.Algorithms;
-using NetStringExtensions.TextComparison.Algorithms.Enum;
+using NetDevExtensions.String.TextComparison.Algorithms;
+using NetDevExtensions.String.TextComparison.Algorithms.Enum;
 
-namespace NetStringExtensions.TextComparison;
+namespace NetDevExtensions.String.Comparison;
 
 public static class TextSimilarityCalculator
 {
