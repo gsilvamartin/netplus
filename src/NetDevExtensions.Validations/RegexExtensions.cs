@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
 
-namespace NetDevExtensions.String.Validation;
+namespace NetDevExtensions.String;
 
-public static class StringExtensions
+public static class RegexExtensions
 {
     public static bool IsValidEmail(this string input)
     {
@@ -77,6 +77,22 @@ public static class StringExtensions
         {
             var ipAddressRegex = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
             return ipAddressRegex.IsMatch(input);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            return false;
+        }
+    }
+
+    public static bool ValidateIpv6Address(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        try
+        {
+            var ipv6Regex = new Regex(@"^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+            return ipv6Regex.IsMatch(input);
         }
         catch (RegexMatchTimeoutException)
         {

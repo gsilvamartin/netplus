@@ -24,7 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetDevExtensions.String\NetDevExtensions.String.csproj" />
+      <ProjectReference Include="..\NetDevExtensions.Comparison\NetDevExtensions.Comparison.csproj" />
+      <ProjectReference Include="..\NetDevExtensions.Validations\NetDevExtensions.Validations.csproj" />
     </ItemGroup>
 
 </Project>
