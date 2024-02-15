@@ -1,7 +1,16 @@
 namespace NetDevExtensions.Comparison.Algorithms;
 
+/// <summary>
+/// A static class providing extension methods for calculating the Jansen-Shannon similarity between two strings.
+/// </summary>
 public static class JansenShannonSimilarity
 {
+    /// <summary>
+    /// Calculates the Jansen-Shannon similarity between two strings.
+    /// </summary>
+    /// <param name="text1">The first string for comparison.</param>
+    /// <param name="text2">The second string for comparison.</param>
+    /// <returns>A double value representing the similarity between the two strings, ranging from 0.00 to 1.00.</returns>
     public static double Calculate(string text1, string text2)
     {
         var words1 = Tokenize(text1);
@@ -19,11 +28,22 @@ public static class JansenShannonSimilarity
         return (klDivergence1 + klDivergence2) / 2.0;
     }
 
+    /// <summary>
+    /// Tokenizes the input text into a list of words.
+    /// </summary>
+    /// <param name="text">The text to be tokenized.</param>
+    /// <returns>A list of strings representing the text as tokens.</returns>
     private static List<string> Tokenize(string text)
     {
         return text.Split(new[] { ' ', '.', ',', ';', '!', '?' }, StringSplitOptions.RemoveEmptyEntries).ToList();
     }
 
+    /// <summary>
+    /// Calculates the word distribution for a given list of words and unique words.
+    /// </summary>
+    /// <param name="words">The list of words.</param>
+    /// <param name="uniqueWords">The unique words in the text.</param>
+    /// <returns>A dictionary representing the word distribution.</returns>
     private static Dictionary<string, double> CalculateWordDistribution(List<string> words, List<string> uniqueWords)
     {
         var distribution = new Dictionary<string, double>();
@@ -37,14 +57,26 @@ public static class JansenShannonSimilarity
         return distribution;
     }
 
+    /// <summary>
+    /// Calculates the Kullback-Leibler Divergence between two distributions.
+    /// </summary>
+    /// <param name="p">The first distribution.</param>
+    /// <param name="q">The second distribution.</param>
+    /// <returns>The Kullback-Leibler Divergence value.</returns>
     private static double CalculateKullbackLeiblerDivergence(Dictionary<string, double> p, Dictionary<string, double> q)
     {
         return (from word in p.Keys
-            let pValue = p[word]
-            let qValue = q.ContainsKey(word) ? q[word] : 0.0
-            select pValue * Math.Log(pValue / qValue)).Sum();
+                let pValue = p[word]
+                let qValue = q.ContainsKey(word) ? q[word] : 0.0
+                select pValue * Math.Log(pValue / qValue)).Sum();
     }
 
+    /// <summary>
+    /// Merges two distributions.
+    /// </summary>
+    /// <param name="p">The first distribution.</param>
+    /// <param name="q">The second distribution.</param>
+    /// <returns>A merged distribution.</returns>
     private static Dictionary<string, double> MergeDistributions(Dictionary<string, double> p,
         Dictionary<string, double> q)
     {

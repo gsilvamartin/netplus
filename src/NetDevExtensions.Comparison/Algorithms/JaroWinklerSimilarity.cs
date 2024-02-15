@@ -1,7 +1,16 @@
 namespace NetDevExtensions.Comparison.Algorithms;
 
+/// <summary>
+/// A static class providing extension methods for calculating the Jaro-Winkler similarity between two strings.
+/// </summary>
 public static class JaroWinklerSimilarity
 {
+    /// <summary>
+    /// Calculates the Jaro-Winkler similarity between two strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <returns>A double value representing the similarity between the two strings, ranging from 0.0 to 1.0.</returns>
     public static double Calculate(string str1, string str2)
     {
         const double scalingFactor = 0.1;
@@ -12,6 +21,12 @@ public static class JaroWinklerSimilarity
         return jaroSimilarity + commonPrefixLength * scalingFactor * (1 - jaroSimilarity);
     }
 
+    /// <summary>
+    /// Calculates the Jaro similarity between two strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <returns>A double value representing the Jaro similarity between the two strings, ranging from 0.0 to 1.0.</returns>
     private static double CalculateJaroSimilarity(string str1, string str2)
     {
         var matchingCharacters = CountMatchingCharacters(str1, str2);
@@ -28,6 +43,12 @@ public static class JaroWinklerSimilarity
         return (m / str1.Length + m / str2.Length + (m - t) / m) / 3.0;
     }
 
+    /// <summary>
+    /// Counts the number of matching characters between two strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <returns>The number of matching characters.</returns>
     private static int CountMatchingCharacters(string str1, string str2)
     {
         var matchingCharacters = 0;
@@ -53,6 +74,12 @@ public static class JaroWinklerSimilarity
         return matchingCharacters;
     }
 
+    /// <summary>
+    /// Counts the number of transpositions between two strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <returns>The number of transpositions.</returns>
     private static int CountTranspositions(string str1, string str2)
     {
         var transpositions = 0;
@@ -70,6 +97,12 @@ public static class JaroWinklerSimilarity
         return transpositions / 2;
     }
 
+    /// <summary>
+    /// Gets the length of the common prefix between two strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <returns>The length of the common prefix.</returns>
     private static int GetCommonPrefixLength(string str1, string str2)
     {
         var commonPrefix = 0;
@@ -80,6 +113,13 @@ public static class JaroWinklerSimilarity
         return commonPrefix;
     }
 
+    /// <summary>
+    /// Gets the length of the common prefix between two strings, starting from a specific index in the first string.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <param name="start">The starting index in the first string.</param>
+    /// <returns>The length of the common prefix.</returns>
     private static int GetCommonPrefixLength(string str1, string str2, int start)
     {
         var commonPrefix = 0;
@@ -90,6 +130,14 @@ public static class JaroWinklerSimilarity
         return commonPrefix;
     }
 
+    /// <summary>
+    /// Gets the length of the common prefix between two strings, starting from specific indices in both strings.
+    /// </summary>
+    /// <param name="str1">The first string for comparison.</param>
+    /// <param name="str2">The second string for comparison.</param>
+    /// <param name="start1">The starting index in the first string.</param>
+    /// <param name="start2">The starting index in the second string.</param>
+    /// <returns>The length of the common prefix.</returns>
     private static int GetCommonPrefixLength(string str1, string str2, int start1, int start2)
     {
         var commonPrefix = 0;
