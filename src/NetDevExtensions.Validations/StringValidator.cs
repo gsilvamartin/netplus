@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace NetDevExtensions.String;
 
-public static class StringValidators
+public static class StringValidator
 {
     public static bool IsDate(this string input)
     {

@@ -11,7 +11,7 @@ public static class LevenshteinSimilarity
     /// <param name="source">The source string for comparison.</param>
     /// <param name="target">The target string for comparison.</param>
     /// <returns>An integer representing the Levenshtein similarity between the two strings.</returns>
-    public static int Calculate(string source, string target)
+    public static int CalculateLevenshteinSimilarity(this string source, string target)
     {
         var distanceMatrix = InitializeDistanceMatrix(source.Length, target.Length);
 

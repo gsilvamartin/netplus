@@ -11,7 +11,7 @@ public static class JaroWinklerSimilarity
     /// <param name="str1">The first string for comparison.</param>
     /// <param name="str2">The second string for comparison.</param>
     /// <returns>A double value representing the similarity between the two strings, ranging from 0.0 to 1.0.</returns>
-    public static double Calculate(string str1, string str2)
+    public static double CalculateJaroWinklerSimilarity(this string str1, string str2)
     {
         const double scalingFactor = 0.1;
 

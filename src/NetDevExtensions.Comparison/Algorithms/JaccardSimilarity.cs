@@ -11,7 +11,7 @@ public static class JaccardSimilarity
     /// <param name="text1"></param>
     /// <param name="text2"></param>
     /// <returns>A double value representing the similarity between the two strings, ranging from 0.00 to 1.00.</returns>
-    public static double Calculate(string text1, string text2)
+    public static double CalculateJaccardSimilarity(this string text1, string text2)
     {
         var set1 = GetWordSet(text1);
         var set2 = GetWordSet(text2);

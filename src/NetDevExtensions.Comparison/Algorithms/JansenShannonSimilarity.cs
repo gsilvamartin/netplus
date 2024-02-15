@@ -11,7 +11,7 @@ public static class JansenShannonSimilarity
     /// <param name="text1">The first string for comparison.</param>
     /// <param name="text2">The second string for comparison.</param>
     /// <returns>A double value representing the similarity between the two strings, ranging from 0.00 to 1.00.</returns>
-    public static double Calculate(string text1, string text2)
+    public static double CalculateJansenShannonSimilarity(this string text1, string text2)
     {
         var words1 = Tokenize(text1);
         var words2 = Tokenize(text2);

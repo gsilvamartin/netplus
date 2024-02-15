@@ -12,7 +12,7 @@ public static class NgramSimilarity
     /// <param name="text2">The second string for comparison.</param>
     /// <param name="n">The size of N-grams to be used (default is 2).</param>
     /// <returns>A double value representing the N-gram similarity between the two strings, ranging from 0.0 to 1.0.</returns>
-    public static double Calculate(string text1, string text2, int n = 2)
+    public static double CalculateNgramSimilarity(this string text1, string text2, int n = 2)
     {
         var ngrams1 = GenerateNgrams(text1, n);
         var ngrams2 = GenerateNgrams(text2, n);

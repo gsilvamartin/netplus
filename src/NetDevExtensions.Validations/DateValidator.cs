@@ -1,6 +1,6 @@
 namespace NetDevExtensions.String;
 
-public static class DateValidators
+public static class DateValidator
 {
     public static bool IsDate<T>(this T input) where T : struct
     {

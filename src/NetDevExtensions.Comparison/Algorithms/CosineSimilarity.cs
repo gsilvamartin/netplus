@@ -11,7 +11,7 @@ public static class CosineSimilarity
     /// <param name="text1"></param>
     /// <param name="text2"></param>
     /// <returns>A double value representing the similarity between the two strings, ranging from 0.00 to 1.00.</returns>
-    public static double Calculate(this string text1, string text2)
+    public static double CalculateCosineSimilarity(this string text1, string text2)
     {
         var vectorA = VectorizeText(text1);
         var vectorB = VectorizeText(text2);

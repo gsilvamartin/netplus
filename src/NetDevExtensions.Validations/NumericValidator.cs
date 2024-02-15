@@ -1,6 +1,6 @@
 namespace NetDevExtensions.String;
 
-public static class NumericValidators
+public static class NumericValidator
 {
     public static bool IsPositive<T>(this T input) where T : struct, IComparable<T>
     {
