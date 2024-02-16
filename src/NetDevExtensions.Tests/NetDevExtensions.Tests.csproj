@@ -24,8 +24,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NetDevExtensions.Algorithms\NetDevExtensions.Algorithms.csproj" />
       <ProjectReference Include="..\NetDevExtensions.Comparison\NetDevExtensions.Comparison.csproj" />
       <ProjectReference Include="..\NetDevExtensions.Validations\NetDevExtensions.Validators.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="TextComparison\" />
     </ItemGroup>
 
 </Project>
