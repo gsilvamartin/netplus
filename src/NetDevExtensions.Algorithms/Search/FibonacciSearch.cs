@@ -9,38 +9,39 @@ public static class FibonacciSearch
 
     private static int Execute<T>(IReadOnlyList<T> array, T value, int left, int right) where T : IComparable<T>
     {
-        var fibM2 = 0;
-        var fibM1 = 1;
-        var fibM = fibM1;
+        var fibMMm2 = 0;
+        var fibMMm1 = 1;
+        var fibM = fibMMm2 + fibMMm1;
 
         while (fibM < right - left)
         {
-            var temp = fibM;
-            fibM = fibM1;
-            fibM1 = temp + fibM1;
+            fibMMm2 = fibMMm1;
+            fibMMm1 = fibM;
+            fibM = fibMMm2 + fibMMm1;
         }
 
         var offset = -1;
 
         while (fibM > 1)
         {
-            var i = Math.Min(left + fibM2, right);
+            var i = Math.Min(left + fibMMm2, right - 1);
 
-            switch (array[i].CompareTo(value))
+            if (array[i].CompareTo(value) < 0)
             {
-                case < 0:
-                    fibM = fibM1;
-                    fibM1 -= fibM2;
-                    fibM2 = fibM - fibM1;
-                    offset = i;
-                    break;
-                case > 0:
-                    fibM = fibM2;
-                    fibM1 -= fibM2;
-                    fibM2 = fibM - fibM1;
-                    break;
-                default:
-                    return i;
+                fibM = fibMMm1;
+                fibMMm1 = fibMMm2;
+                fibMMm2 = fibM - fibMMm1;
+                offset = i;
+            }
+            else if (array[i].CompareTo(value) > 0)
+            {
+                fibM = fibMMm2;
+                fibMMm1 = fibMMm1 - fibMMm2;
+                fibMMm2 = fibM - fibMMm1;
+            }
+            else
+            {
+                return i;
             }
         }
 

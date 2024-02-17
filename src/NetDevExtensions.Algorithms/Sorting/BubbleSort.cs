@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NetDevExtensions.Algorithms.Sorting;
 
-public class BubbleSort
+public static class BubbleSort
 {
-    public static T[] Sort<T>(T[] array) where T : IComparable<T>
+    public static T[] ExecuteBubbleSort<T>(this T[] array) where T : IComparable<T>
     {
         for (int i = 0; i < array.Length - 1; i++)
         {
@@ -24,4 +24,3 @@ public class BubbleSort
         return array;
     }
 }
-

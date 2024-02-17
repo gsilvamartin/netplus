@@ -312,4 +312,13 @@ public static class StringValidator
             return false;
         }
     }
+    
+    public static bool IsPalindrome(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        var cleanString = Regex.Replace(input, "[^A-Za-z0-9]", "").ToLower();
+        return cleanString.SequenceEqual(cleanString.Reverse());
+    }
 }

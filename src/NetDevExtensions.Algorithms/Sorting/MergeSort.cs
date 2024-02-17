@@ -1,37 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NetDevExtensions.Algorithms.Sorting.Util;
 
 namespace NetDevExtensions.Algorithms.Sorting;
 
 public static class MergeSort
 {
-    public static T[] Sort<T>(T[] array) where T : IComparable<T>
+    public static T[] ExecuteMergeSort<T>(
+        this T[] array,
+        SortOrder sortOrder = SortOrder.Ascending,
+        IComparer<T>? comparer = null
+    )
     {
         if (array.Length <= 1) return array;
 
-        int middle = array.Length / 2;
-        T[] left = new T[middle];
-        T[] right = new T[array.Length - middle];
+        var middle = array.Length / 2;
+        var left = new T[middle];
+        var right = new T[array.Length - middle];
 
         Array.Copy(array, 0, left, 0, middle);
         Array.Copy(array, middle, right, 0, right.Length);
 
-        Sort(left);
-        Sort(right);
+        ExecuteMergeSort(left, sortOrder, comparer);
+        ExecuteMergeSort(right, sortOrder, comparer);
 
-        return Merge(left, right, array);
+        return Merge(left, right, array, sortOrder, comparer ?? Comparer<T>.Default);
     }
 
-    private static T[] Merge<T>(T[] left, T[] right, T[] array) where T : IComparable<T>
+    private static T[] Merge<T>(T[] left, T[] right, T[] array, SortOrder sortOrder, IComparer<T>? comparer)
     {
         int leftIndex = 0, rightIndex = 0, outputIndex = 0;
 
         while (leftIndex < left.Length && rightIndex < right.Length)
         {
-            if (left[leftIndex].CompareTo(right[rightIndex]) < 0)
+            var comparisonResult = comparer?.Compare(left[leftIndex], right[rightIndex]) ??
+                                   Comparer<T>.Default.Compare(left[leftIndex], right[rightIndex]);
+
+            if (sortOrder == SortOrder.Ascending ? comparisonResult < 0 : comparisonResult > 0)
             {
                 array[outputIndex++] = left[leftIndex++];
             }
@@ -54,4 +57,3 @@ public static class MergeSort
         return array;
     }
 }
-

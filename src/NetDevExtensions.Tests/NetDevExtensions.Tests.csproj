@@ -29,8 +29,4 @@
       <ProjectReference Include="..\NetDevExtensions.Validations\NetDevExtensions.Validators.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="TextComparison\" />
-    </ItemGroup>
-
 </Project>
