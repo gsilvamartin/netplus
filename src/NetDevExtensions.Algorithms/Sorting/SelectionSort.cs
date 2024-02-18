@@ -11,8 +11,10 @@
         /// <typeparam name="T">The type of elements in the array, must implement IComparable{T}.</typeparam>
         /// <param name="array">The array to be sorted.</param>
         /// <returns>The sorted array.</returns>
-        public static T[] Sort<T>(T[] array) where T : IComparable<T>
+        public static T[] ExecuteSelectionSort<T>(this T[] array) where T : IComparable<T>
         {
+            ArgumentNullException.ThrowIfNull(array);
+
             for (var i = 0; i < array.Length - 1; i++)
             {
                 var minIndex = i;

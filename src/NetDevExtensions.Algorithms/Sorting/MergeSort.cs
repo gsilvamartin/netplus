@@ -15,7 +15,9 @@ public static class MergeSort
     /// <param name="sortOrder">The order in which to sort the array (ascending or descending).</param>
     /// <param name="comparer">The comparer to use for custom element comparisons.</param>
     /// <returns>The sorted array.</returns>
-    public static T[] ExecuteMergeSort<T>(this T[] array, SortOrder sortOrder = SortOrder.Ascending,
+    public static T[] ExecuteMergeSort<T>(
+        this T[] array,
+        SortOrder sortOrder = SortOrder.Ascending,
         IComparer<T>? comparer = null)
     {
         if (array.Length <= 1) return array;

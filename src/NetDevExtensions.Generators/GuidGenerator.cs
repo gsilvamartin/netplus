@@ -8,7 +8,7 @@ public static class GuidGenerator
     /// <summary>
     /// Generates a new GUID.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A new GUID.</returns>
     public static Guid GenerateGuid()
     {
         return Guid.NewGuid();
@@ -17,7 +17,7 @@ public static class GuidGenerator
     /// <summary>
     /// Generates a new GUID as a string.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A new GUID as a string.</returns>
     public static string GenerateGuidString()
     {
         return Guid.NewGuid().ToString();
@@ -26,7 +26,7 @@ public static class GuidGenerator
     /// <summary>
     /// Generates a new GUID as a byte array.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A new GUID as a byte array.</returns>
     public static byte[] GenerateGuidBytes()
     {
         return Guid.NewGuid().ToByteArray();
@@ -35,7 +35,7 @@ public static class GuidGenerator
     /// <summary>
     /// Generates a new GUID as a Base64 string.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A new GUID as a Base64 string.</returns>
     public static string GenerateGuidBase64()
     {
         return Convert.ToBase64String(Guid.NewGuid().ToByteArray());
