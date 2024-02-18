@@ -1,39 +1,86 @@
-namespace NetDevExtensions.String;
+namespace NetDevExtensions.Validators;
 
+/// <summary>
+/// Static class containing numeric validation methods.
+/// </summary>
 public static class NumericValidator
 {
+    /// <summary>
+    /// Determines whether the specified value is positive.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is positive; otherwise, <c>false</c>.</returns>
     public static bool IsPositive<T>(this T input) where T : struct, IComparable<T>
     {
-        return input.CompareTo(default(T)) > 0;
+        return input.CompareTo(default) > 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is negative.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is negative; otherwise, <c>false</c>.</returns>
     public static bool IsNegative<T>(this T input) where T : struct, IComparable<T>
     {
         return input.CompareTo(default(T)) < 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is zero.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is zero; otherwise, <c>false</c>.</returns>
     public static bool IsZero<T>(this T input) where T : struct, IComparable<T>
     {
         return input.CompareTo(default(T)) == 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is even.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is even; otherwise, <c>false</c>.</returns>
     public static bool IsEven<T>(this T input) where T : struct
     {
         dynamic value = input;
         return value % 2 == 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is odd.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is odd; otherwise, <c>false</c>.</returns>
     public static bool IsOdd<T>(this T input) where T : struct
     {
         dynamic value = input;
         return value % 2 != 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is between the specified lower and upper bounds.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <param name="lower">The lower bound.</param>
+    /// <param name="upper">The upper bound.</param>
+    /// <returns><c>true</c> if the specified value is between the lower and upper bounds (inclusive); otherwise, <c>false</c>.</returns>
     public static bool IsBetween<T>(this T input, T lower, T upper) where T : struct, IComparable<T>
     {
         return input.CompareTo(lower) >= 0 && input.CompareTo(upper) <= 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a prime number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a prime number; otherwise, <c>false</c>.</returns>
     public static bool IsPrime<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -52,6 +99,13 @@ public static class NumericValidator
         return true;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is divisible by the given divisor.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <param name="divisor">The divisor.</param>
+    /// <returns><c>true</c> if the specified value is divisible by the divisor; otherwise, <c>false</c>.</returns>
     public static bool IsDivisibleBy<T>(this T input, T divisor) where T : struct
     {
         dynamic value = input;
@@ -59,21 +113,47 @@ public static class NumericValidator
         return value % div == 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is positive or zero.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is positive or zero; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveOrZero<T>(this T input) where T : struct, IComparable<T>
     {
         return input.CompareTo(default(T)) >= 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is negative or zero.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is negative or zero; otherwise, <c>false</c>.</returns>
     public static bool IsNegativeOrZero<T>(this T input) where T : struct, IComparable<T>
     {
         return input.CompareTo(default(T)) <= 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is between the specified lower and upper bounds or equal to them.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <param name="lower">The lower bound.</param>
+    /// <param name="upper">The upper bound.</param>
+    /// <returns><c>true</c> if the specified value is between or equal to the lower and upper bounds; otherwise, <c>false</c>.</returns>
     public static bool IsBetweenOrEqual<T>(this T input, T lower, T upper) where T : struct, IComparable<T>
     {
         return input.CompareTo(lower) >= 0 && input.CompareTo(upper) <= 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a perfect square.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a perfect square; otherwise, <c>false</c>.</returns>
     public static bool IsPerfectSquare<T>(this T input) where T : struct
     {
         dynamic value = input;
@@ -81,12 +161,24 @@ public static class NumericValidator
         return sqrt * sqrt == value;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a palindrome.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a palindrome; otherwise, <c>false</c>.</returns>
     public static bool IsPalindrome<T>(this T input) where T : struct
     {
         var str = input.ToString();
         return str != null && str == new string(str.Reverse().ToArray());
     }
 
+    /// <summary>
+    /// Determines whether the specified value is an Armstrong number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is an Armstrong number; otherwise, <c>false</c>.</returns>
     public static bool IsArmstrongNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -102,6 +194,12 @@ public static class NumericValidator
         return sum == value;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a perfect number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a perfect number; otherwise, <c>false</c>.</returns>
     public static bool IsPerfectNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -119,6 +217,12 @@ public static class NumericValidator
         return sum == value && value != 1;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a Harshad number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a Harshad number; otherwise, <c>false</c>.</returns>
     public static bool IsHarshadNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -133,6 +237,12 @@ public static class NumericValidator
         return value % sum == 0;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is an abundant number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is an abundant number; otherwise, <c>false</c>.</returns>
     public static bool IsAbundantNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -150,6 +260,12 @@ public static class NumericValidator
         return sum > value;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a deficient number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a deficient number; otherwise, <c>false</c>.</returns>
     public static bool IsDeficientNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -167,6 +283,12 @@ public static class NumericValidator
         return sum < value;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a Pronic number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a Pronic number; otherwise, <c>false</c>.</returns>
     public static bool IsPronicNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -181,6 +303,12 @@ public static class NumericValidator
         return false;
     }
 
+    /// <summary>
+    /// Determines whether the specified value is an Automorphic number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is an Automorphic number; otherwise, <c>false</c>.</returns>
     public static bool IsAutomorphicNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -188,6 +316,12 @@ public static class NumericValidator
         return square.ToString().EndsWith(value.ToString());
     }
 
+    /// <summary>
+    /// Determines whether the specified value is a Happy number.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="input">The input value.</param>
+    /// <returns><c>true</c> if the specified value is a Happy number; otherwise, <c>false</c>.</returns>
     public static bool IsHappyNumber<T>(this T input) where T : struct, IComparable<T>
     {
         dynamic value = input;
@@ -209,6 +343,13 @@ public static class NumericValidator
         return value == 1;
     }
 
+    /// <summary>
+    /// Raises a value to the power of another value.
+    /// </summary>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <param name="x">The base value.</param>
+    /// <param name="y">The exponent value.</param>
+    /// <returns>The result of raising <paramref name="x"/> to the power of <paramref name="y"/>.</returns>
     private static T Power<T>(this T x, T y) where T : struct, IComparable<T>
     {
         dynamic value = x;

@@ -9,8 +9,7 @@ namespace NetDevExtensions.ServiceAbstractions.Cache.Memory
 {
     public class MemoryCacheRepository<T> : IMemoryCacheRepository<T> where T : class
     {
-        private readonly ConcurrentDictionary<string, CacheItem<T>> _cache =
-            new ConcurrentDictionary<string, CacheItem<T>>();
+        private readonly ConcurrentDictionary<string, CacheItem<T>> _cache = new();
 
         public async Task<T> GetAsync(string key)
         {
