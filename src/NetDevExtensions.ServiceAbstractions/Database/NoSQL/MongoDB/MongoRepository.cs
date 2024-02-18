@@ -13,6 +13,11 @@ using NetDevExtensions.ServiceAbstractions.Database.NoSQL.MongoDB.Interfaces;
 
 namespace NetDevExtensions.ServiceAbstractions.Database.NoSQL.MongoDB
 {
+    /// <summary>
+    /// Represents a generic MongoDB repository.
+    /// </summary>
+    /// <typeparam name="T">Type of the entity</typeparam>
+    /// <inheritdoc/>
     public class MongoRepository<T> : IMongoRepository<T> where T : BaseEntity
     {
         private readonly IMongoCollection<T> _collection;
