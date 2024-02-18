@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NetDevExtensions.Algorithms.Sorting;
-
-public static class SelectionSort
+﻿namespace NetDevExtensions.Algorithms.Sorting
 {
-    public static T[] Sort<T>(T[] array) where T : IComparable<T>
+    /// <summary>
+    /// Provides methods for performing Selection Sort on arrays.
+    /// </summary>
+    public static class SelectionSort
     {
-        for (int i = 0; i < array.Length - 1; i++)
+        /// <summary>
+        /// Sorts an array using the Selection Sort algorithm.
+        /// </summary>
+        /// <typeparam name="T">The type of elements in the array, must implement IComparable{T}.</typeparam>
+        /// <param name="array">The array to be sorted.</param>
+        /// <returns>The sorted array.</returns>
+        public static T[] Sort<T>(T[] array) where T : IComparable<T>
         {
-            int minIndex = i;
-            for (int j = i + 1; j < array.Length; j++)
+            for (var i = 0; i < array.Length - 1; i++)
             {
-                if (array[j].CompareTo(array[minIndex]) < 0)
-                {
-                    minIndex = j;
-                }
+                var minIndex = i;
+
+                for (var j = i + 1; j < array.Length; j++)
+                    if (array[j].CompareTo(array[minIndex]) < 0)
+                        minIndex = j;
+
+                if (minIndex != i) (array[minIndex], array[i]) = (array[i], array[minIndex]);
             }
 
-            if (minIndex != i)
-            {
-                (array[minIndex], array[i]) = (array[i], array[minIndex]);
-            }
+            return array;
         }
-
-        return array;
     }
 }
-
