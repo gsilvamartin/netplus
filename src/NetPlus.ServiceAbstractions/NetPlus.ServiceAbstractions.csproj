@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Queue\SQS\" />
+      <Compile Remove="Queue\SQS\**" />
+      <EmbeddedResource Remove="Queue\SQS\**" />
+      <None Remove="Queue\SQS\**" />
     </ItemGroup>
 
     <ItemGroup>

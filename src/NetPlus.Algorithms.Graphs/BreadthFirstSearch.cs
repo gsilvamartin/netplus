@@ -1,4 +1,4 @@
-namespace NetPlus.Algorithms.Graph;
+namespace NetPlus.Algorithms.Graphs;
 
 /// <summary>
 /// Class for performing Breadth-First Search (BFS) on a graph.

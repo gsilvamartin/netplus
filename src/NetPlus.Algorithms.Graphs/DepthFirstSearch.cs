@@ -1,4 +1,4 @@
-namespace NetPlus.Algorithms.Graph;
+namespace NetPlus.Algorithms.Graphs;
 
 /// <summary>
 /// Class for performing Depth-First Search (DFS) on a graph.
