@@ -1,17 +1,17 @@
 namespace NetPlus.Algorithms.Sorting.Util;
 
 /// <summary>
-/// Represents the sorting order, either Ascending or Descending.
+/// Represents the order in which to sort an array.
 /// </summary>
 public enum SortOrder
 {
     /// <summary>
-    /// Represents ascending sorting order.
+    /// Sort the array in ascending order.
     /// </summary>
     Ascending,
 
     /// <summary>
-    /// Represents descending sorting order.
+    /// Sort the array in descending order.
     /// </summary>
     Descending
 }

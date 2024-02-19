@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
-        <PackageReference Include="xunit" Version="2.4.2" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
+        <PackageReference Include="xunit" Version="2.4.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -24,9 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetDevExtensions.Algorithms\NetPlus.Algorithms.csproj" />
-      <ProjectReference Include="..\NetDevExtensions.Comparison\NetPlus.Comparison.csproj" />
-      <ProjectReference Include="..\NetDevExtensions.Validations\NetPlus.Validators.csproj" />
+        <ProjectReference Include="..\NetPlus.Algorithms\NetPlus.Algorithm.Search\NetPlus.Algorithms.Search.csproj"/>
+        <ProjectReference Include="..\NetPlus.Algorithms\NetPlus.Algorithms.Sorting\NetPlus.Algorithms.Sorting.csproj"/>
     </ItemGroup>
 
 </Project>
