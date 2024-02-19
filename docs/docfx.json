@@ -26,8 +26,8 @@
     "output": "_site",
     "template": ["default", "modern"],
     "globalMetadata": {
-      "_appName": "netdevextensions",
-      "_appTitle": "netdevextensions",
+      "_appName": "netplus",
+      "_appTitle": "netplus",
       "_enableSearch": true,
       "pdf": true
     }
