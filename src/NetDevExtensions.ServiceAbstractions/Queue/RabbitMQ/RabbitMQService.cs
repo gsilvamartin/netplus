@@ -92,6 +92,7 @@ public class RabbitMqService : IRabbitMqService
 
         var replyQueueName = _channel.QueueDeclare().QueueName;
         var consumer = new AsyncEventingBasicConsumer(_channel);
+        
         consumer.Received += (model, ea) =>
         {
             if (ea.BasicProperties.CorrelationId != request.ToString()) return Task.CompletedTask;

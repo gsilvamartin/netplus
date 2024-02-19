@@ -7,6 +7,11 @@ using NetDevExtensions.ServiceAbstractions.Cache.Memory.Interfaces;
 
 namespace NetDevExtensions.ServiceAbstractions.Cache.Memory
 {
+    /// <summary>
+    /// Memory Cache Repository for storing and retrieving objects in-memory.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <inheritdoc/>
     public class MemoryCacheRepository<T> : IMemoryCacheRepository<T> where T : class
     {
         private readonly ConcurrentDictionary<string, CacheItem<T>> _cache = new();

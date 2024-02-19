@@ -102,7 +102,9 @@ public static class DateTimeConverter
     /// <param name="formatProvider"></param>
     /// <param name="dateTimeStyles"></param>
     /// <returns>A DateTime representation of string</returns>
-    public static DateTime ConvertStringToDateTime(this string input, IFormatProvider formatProvider,
+    public static DateTime ConvertStringToDateTime(
+        this string input,
+        IFormatProvider formatProvider,
         DateTimeStyles dateTimeStyles)
     {
         return DateTime.Parse(input, formatProvider, dateTimeStyles);
@@ -116,7 +118,10 @@ public static class DateTimeConverter
     /// <param name="formatProvider"></param>
     /// <param name="dateTimeStyles"></param>
     /// <returns>A DateTime representation of string</returns>
-    public static DateTime ConvertStringToDateTime(this string input, string format, IFormatProvider formatProvider,
+    public static DateTime ConvertStringToDateTime(
+        this string input,
+        string format,
+        IFormatProvider formatProvider,
         DateTimeStyles dateTimeStyles)
     {
         return DateTime.ParseExact(input, format, formatProvider, dateTimeStyles);
@@ -202,7 +207,10 @@ public static class DateTimeConverter
     /// <param name="dateTimeStyles"></param>
     /// <param name="formatProvider"></param>
     /// <returns>A DateTime representation of string</returns>
-    public static DateTime ConvertStringToDateTime(this string input, string format, DateTimeStyles dateTimeStyles,
+    public static DateTime ConvertStringToDateTime(
+        this string input,
+        string format,
+        DateTimeStyles dateTimeStyles,
         IFormatProvider formatProvider)
     {
         return DateTime.ParseExact(input, format, formatProvider, dateTimeStyles);

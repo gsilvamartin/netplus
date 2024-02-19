@@ -45,11 +45,16 @@ public static class MergeSort
     /// <param name="sortOrder">The order in which to merge the arrays (ascending or descending).</param>
     /// <param name="comparer">The comparer to use for custom element comparisons.</param>
     /// <returns>The merged and sorted array.</returns>
-    private static T[] Merge<T>(T[] left, T[] right, T[] array, SortOrder sortOrder, IComparer<T>? comparer)
+    private static T[] Merge<T>(
+        IReadOnlyList<T> left,
+        IReadOnlyList<T> right,
+        T[] array,
+        SortOrder sortOrder,
+        IComparer<T>? comparer)
     {
         int leftIndex = 0, rightIndex = 0, outputIndex = 0;
 
-        while (leftIndex < left.Length && rightIndex < right.Length)
+        while (leftIndex < left.Count && rightIndex < right.Count)
         {
             var comparisonResult = comparer?.Compare(left[leftIndex], right[rightIndex]) ??
                                    Comparer<T>.Default.Compare(left[leftIndex], right[rightIndex]);
@@ -60,10 +65,10 @@ public static class MergeSort
                 array[outputIndex++] = right[rightIndex++];
         }
 
-        while (leftIndex < left.Length)
+        while (leftIndex < left.Count)
             array[outputIndex++] = left[leftIndex++];
 
-        while (rightIndex < right.Length)
+        while (rightIndex < right.Count)
             array[outputIndex++] = right[rightIndex++];
 
         return array;

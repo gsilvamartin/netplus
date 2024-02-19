@@ -8,6 +8,11 @@ using StackExchange.Redis;
 
 namespace NetDevExtensions.ServiceAbstractions.Cache.Redis
 {
+    /// <summary>
+    /// Repository for storing and retrieving objects in Redis cache.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <inheritdoc/>
     public class RedisRepository<T> : IRedisRepository<T> where T : class
     {
         private readonly IDatabase _database;

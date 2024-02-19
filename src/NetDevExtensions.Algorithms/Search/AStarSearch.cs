@@ -48,7 +48,7 @@ public static class AStarSearch<T> where T : notnull
             ProcessNeighbors(graph, current, goal, heuristic, gScore, fScore, cameFrom, openSet, priorityQueue);
         }
 
-        return new List<T>();
+        return [];
     }
 
     /// <summary>
