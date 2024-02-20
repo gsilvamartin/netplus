@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push-algorithms-Comparison:
+  build-and-push-algorithms-comparison:
     runs-on: ubuntu-latest
 
     outputs:
