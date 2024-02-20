@@ -15,17 +15,65 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
 {
     /// <summary>
     /// Represents a generic MongoDB repository.
+    ///
+    /// This class provides the most common operations for a MongoDB repository.
+    /// It is designed to be used with any entity that inherits from <see cref="BaseEntity"/>.
     /// </summary>
     /// <typeparam name="T">Type of the entity</typeparam>
     /// <inheritdoc/>
     public class MongoRepository<T> : IMongoRepository<T> where T : BaseEntity
     {
+        /// <summary>
+        /// The collection of the entity.
+        /// </summary>
         private readonly IMongoCollection<T> _collection;
 
-        public MongoRepository(Action<MongoDbConfiguration> configure)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MongoRepository{T}"/> class.
+        ///
+        /// Basic constructor that takes in an instance of <see cref="MongoDbConfiguration"/>.
+        /// This is called when you call ConfigureMongoDb in the ConfigureServices method of your Startup class.
+        ///
+        /// If you don't call ConfigureMongoDb, this constructor will not be called. And you will have to
+        /// provide the connection string and database name in the constructor.
+        /// </summary>
+        /// <param name="config">MongoDB Configuration</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public MongoRepository(MongoDbConfiguration config)
+        {
+            if (config == null)
+                throw new ArgumentNullException(nameof(config));
+
+            if (string.IsNullOrEmpty(config.ConnectionString))
+                throw new ArgumentException("ConnectionString cannot be null or empty",
+                    nameof(config.ConnectionString));
+
+            if (string.IsNullOrEmpty(config.DatabaseName))
+                throw new ArgumentException("DatabaseName cannot be null or empty", nameof(config.DatabaseName));
+
+            var client = new MongoClient(config.ConnectionString);
+            var database = client.GetDatabase(config.DatabaseName);
+
+            _collection = database.GetCollection<T>(typeof(T).Name.ToLower());
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MongoRepository{T}"/> class.
+        ///
+        /// This constructor is used when you want to configure the MongoDb
+        /// using a different connection string and database name for the specific entity.
+        /// </summary>
+        /// <param name="configure">MongoDB Configuration</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public MongoRepository(Action<MongoDbConfiguration>? configure = null)
         {
             var config = new MongoDbConfiguration();
-            configure.Invoke(config);
+            configure?.Invoke(config);
+
+            if (config == null)
+                throw new ArgumentNullException(nameof(config));
 
             if (string.IsNullOrEmpty(config.ConnectionString))
                 throw new ArgumentException("ConnectionString cannot be null or empty",
