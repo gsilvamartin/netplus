@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>NetPlus.Algorithms.Search</id>
+    <version>1.0.0</version>
+    <title>NetPlus - Algorithms: Search</title>
+    <authors>Guilherme Martin</authors>
+    <owners>Guilherme Martin</owners>
+    <description>Search algorithms</description>
+  </metadata>
+</package>

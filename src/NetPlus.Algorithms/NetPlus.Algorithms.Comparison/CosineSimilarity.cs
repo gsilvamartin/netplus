@@ -54,7 +54,7 @@ namespace NetPlus.Algorithms.Comparison
         /// <returns>A list of string representing the text as tokens.</returns>
         private static List<string> TokenizeText(string text)
         {
-            return text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            return text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
         /// <summary>

@@ -25,6 +25,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\NetPlus.Algorithms\NetPlus.Algorithm.Search\NetPlus.Algorithms.Search.csproj"/>
+        <ProjectReference Include="..\NetPlus.Algorithms\NetPlus.Algorithms.Search\NetPlus.Algorithms.Search.csproj" />
         <ProjectReference Include="..\NetPlus.Algorithms\NetPlus.Algorithms.Sorting\NetPlus.Algorithms.Sorting.csproj"/>
     </ItemGroup>
 
