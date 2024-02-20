@@ -1,0 +1,14 @@
+name: Deploy NetPlus Packages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish - NetPlus.Algorithms.Graphs
+        uses: ./.github/workflows/deploy-algorithms-graphs.yml
