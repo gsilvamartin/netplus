@@ -63,7 +63,7 @@ jobs:
           alias nuget="mono /usr/local/bin/nuget.exe"
 
       - name: Build Project and Pack NuGet package
-        run: dotnet pack src/NetPlus.ServiceAbstractions/NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB/NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.csproj --configuration Release --output nupkg -p:PackageVersion=$NEW_VERSION
+        run: dotnet pack src/NetPlus.ServiceAbstractions/NetPlus.ServiceAbstractions.NoSQL/NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB/NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.csproj --configuration Release --output nupkg -p:PackageVersion=$NEW_VERSION
 
       - name: Push NuGet Package
         run: |
