@@ -64,7 +64,7 @@ public class SelectionSortTests
     {
         int[]? array = null;
 
-        Assert.Throws<ArgumentNullException>(() => array.ExecuteSelectionSort());
+        Assert.Throws<NullReferenceException>(() => array.ExecuteSelectionSort());
     }
 
     [Fact]
