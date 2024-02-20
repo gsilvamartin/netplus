@@ -31,7 +31,7 @@ jobs:
           echo "NuGet API Response:"
           echo "$nuget_response"
 
-          if [ -z "$nuget_response" ]; then
+          if [[ $latest_version == *"The specified blob does not exist."* ]]; then
             echo "NuGet API response is empty. Setting version to 1.0.0"
             echo "NEW_VERSION=1.0.0" >> $GITHUB_ENV
           else
