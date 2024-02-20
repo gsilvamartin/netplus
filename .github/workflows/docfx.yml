@@ -1,5 +1,5 @@
-# Your GitHub workflow file under .github/workflows/
-# Trigger the action on push to main
+name: Deploy NetPlus Documentation
+
 on:
   push:
     branches:
