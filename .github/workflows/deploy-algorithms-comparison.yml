@@ -1,0 +1,73 @@
+name: Publish - NetPlus.Algorithms.Comparison
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push-algorithms-Comparison:
+    runs-on: ubuntu-latest
+
+    outputs:
+      package_version: ${{ steps.pack.outputs.package_version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0'
+
+      - name: Build Project and Pack NuGet package
+        run: dotnet pack src/NetPlus.Algorithms/NetPlus.Algorithms.Comparison/NetPlus.Algorithms.Comparison.csproj --configuration Release --output nupkg
+
+      - name: Get latest NuGet package version
+        id: get-latest-version
+        run: |
+          nuget_response=$(curl -s "https://api.nuget.org/v3-flatcontainer/NetPlus.Algorithms.Comparison/index.json")
+          echo "NuGet API Response:"
+          echo "$nuget_response"
+
+          if [[ $nuget_response == *"The specified blob does not exist."* ]]; then
+            echo "NuGet API response is empty. Setting version to 1.0.0"
+            echo "NEW_VERSION=1.0.0" >> $GITHUB_ENV
+          else
+            latest_version=$(echo "$nuget_response" | python -c "import sys, json; data = json.load(sys.stdin); versions = data.get('versions', []); versions = [v for v in versions if v is not None]; print(max(versions, key=lambda s: list(map(int, s.split('.')))) if versions else '')")
+
+            echo "Latest version after parsing:"
+            echo "$latest_version"
+
+            if [ -z "$latest_version" ]; then
+              echo "No versions found or latest version is 1.0.0. Setting version to 1.0.1"
+              echo "NEW_VERSION=1.0.1" >> $GITHUB_ENV
+            elif [ "$latest_version" = "1.0.0" ]; then
+              echo "NuGet API response is 1.0.0. Setting version to 1.0.1"
+              echo "NEW_VERSION=1.0.1" >> $GITHUB_ENV
+            else
+              IFS='.' read -r -a version_parts <<< "$latest_version"
+              ((version_parts[2]++))
+              new_version="${version_parts[0]}.${version_parts[1]}.${version_parts[2]}"
+              echo "Latest version: $latest_version"
+              echo "New version: $new_version"
+              echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
+            fi
+          fi
+
+      - name: Show environment variable
+        run: |
+          echo "NEW_VERSION: $NEW_VERSION"
+
+      - name: Install nuget CLI
+        run: |
+          sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          alias nuget="mono /usr/local/bin/nuget.exe"
+
+      - name: Push NuGet Package
+        run: |
+          nupkg_path="nupkg/NetPlus.Algorithms.Comparison.$NEW_VERSION.nupkg"
+          nuget push $nupkg_path -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_API_KEY }}
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
