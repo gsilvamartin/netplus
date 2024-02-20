@@ -1,4 +1,6 @@
-﻿namespace NetPlus.Algorithms.Sorting
+﻿using System;
+
+namespace NetPlus.Algorithms.Sorting
 {
     /// <summary>
     /// Provides methods for performing Selection Sort on arrays.
@@ -13,8 +15,6 @@
         /// <returns>The sorted array.</returns>
         public static T[] ExecuteSelectionSort<T>(this T[] array) where T : IComparable<T>
         {
-            ArgumentNullException.ThrowIfNull(array);
-
             for (var i = 0; i < array.Length - 1; i++)
             {
                 var minIndex = i;

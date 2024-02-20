@@ -1,17 +1,18 @@
-namespace NetPlus.Algorithms.Sorting.Util;
-
-/// <summary>
-/// Represents the order in which to sort an array.
-/// </summary>
-public enum SortOrder
+namespace NetPlus.Algorithms.Sorting.Util
 {
     /// <summary>
-    /// Sort the array in ascending order.
+    /// Represents the order in which to sort an array.
     /// </summary>
-    Ascending,
+    public enum SortOrder
+    {
+        /// <summary>
+        /// Sort the array in ascending order.
+        /// </summary>
+        Ascending,
 
-    /// <summary>
-    /// Sort the array in descending order.
-    /// </summary>
-    Descending
+        /// <summary>
+        /// Sort the array in descending order.
+        /// </summary>
+        Descending
+    }
 }

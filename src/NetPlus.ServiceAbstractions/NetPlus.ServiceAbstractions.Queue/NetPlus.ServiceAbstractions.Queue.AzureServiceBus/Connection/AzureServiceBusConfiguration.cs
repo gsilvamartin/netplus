@@ -1,6 +1,7 @@
-namespace NetPlus.ServiceAbstractions.Queue.AzureServiceBus.Connection;
-
-public class AzureServiceBusConfiguration
+namespace NetPlus.ServiceAbstractions.Queue.AzureServiceBus.Connection
 {
-    public string ConnectionString { get; set; }
+    public class AzureServiceBusConfiguration
+    {
+        public string ConnectionString { get; set; }
+    }
 }

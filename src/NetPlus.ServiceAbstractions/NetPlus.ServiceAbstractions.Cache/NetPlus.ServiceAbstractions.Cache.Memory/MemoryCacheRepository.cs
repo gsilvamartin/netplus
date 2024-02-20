@@ -14,7 +14,8 @@ namespace NetPlus.ServiceAbstractions.Cache.Memory
     /// <inheritdoc/>
     public class MemoryCacheRepository<T> : IMemoryCacheRepository<T> where T : class
     {
-        private readonly ConcurrentDictionary<string, CacheItem<T>> _cache = new();
+        private readonly ConcurrentDictionary<string, CacheItem<T>> _cache =
+            new ConcurrentDictionary<string, CacheItem<T>>();
 
         public async Task<T> GetAsync(string key)
         {
