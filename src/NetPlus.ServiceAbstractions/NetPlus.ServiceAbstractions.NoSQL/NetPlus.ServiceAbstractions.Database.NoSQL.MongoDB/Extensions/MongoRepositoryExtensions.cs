@@ -20,6 +20,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
         ///
         /// Reminder: If you don't call this method, you'll need to specify the configuration when you create a
         /// <see cref="MongoRepository{T}"/> instance.
+        /// 
         /// </summary>
         /// <param name="service">Service Collection</param>
         /// <param name="configure">MongoDb Configuration</param>

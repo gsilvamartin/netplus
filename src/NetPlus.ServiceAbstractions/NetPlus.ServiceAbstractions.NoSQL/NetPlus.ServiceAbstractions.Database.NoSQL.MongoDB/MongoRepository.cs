@@ -55,7 +55,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
             var client = new MongoClient(config.ConnectionString);
             var database = client.GetDatabase(config.DatabaseName);
 
-            _collection = database.GetCollection<T>(typeof(T).Name.ToLower());
+            _collection = database.GetCollection<T>(GetCollectionName());
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
             var client = new MongoClient(config.ConnectionString);
             var database = client.GetDatabase(config.DatabaseName);
 
-            _collection = database.GetCollection<T>(typeof(T).Name.ToLower());
+            _collection = database.GetCollection<T>(GetCollectionName());
         }
 
         public async Task InsertAsync(T entity)
@@ -359,6 +359,14 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
         public IMongoQueryable<T> AsMongoQueryable()
         {
             return _collection.AsQueryable();
+        }
+
+        private static string GetCollectionName()
+        {
+            var attribute =
+                (BsonCollectionAttribute)Attribute.GetCustomAttribute(typeof(T), typeof(BsonCollectionAttribute));
+
+            return attribute != null ? attribute.CollectionName : typeof(T).Name.ToLower();
         }
     }
 }
