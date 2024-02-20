@@ -1,10 +1,9 @@
 name: Publish - NetPlus.Algorithms.Graphs
 
 on:
-  workflow_run:
-    workflows: ["Publish - NetPlus.Algorithms.Graphs"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-push-algorithms-graph:
