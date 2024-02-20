@@ -1,4 +1,4 @@
-name: Publish - NetPlus.Algorithms.Graphs
+name: Publish - NetPlus.Algorithms.Comparison
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push-algorithms-graph:
+  build-and-push-algorithms-comparison:
     runs-on: ubuntu-latest
 
     outputs:
@@ -19,12 +19,12 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '8.0'
+          dotnet-version: "8.0"
 
       - name: Get latest NuGet package version
         id: get-latest-version
         run: |
-          nuget_response=$(curl -s "https://api.nuget.org/v3-flatcontainer/NetPlus.Algorithms.Graphs/index.json")
+          nuget_response=$(curl -s "https://api.nuget.org/v3-flatcontainer/NetPlus.Algorithms.Comparison/index.json")
           echo "NuGet API Response:"
           echo "$nuget_response"
 
@@ -63,11 +63,11 @@ jobs:
           alias nuget="mono /usr/local/bin/nuget.exe"
 
       - name: Build Project and Pack NuGet package
-        run: dotnet pack src/NetPlus.Algorithms/NetPlus.Algorithms.Graphs/NetPlus.Algorithms.Graphs.csproj --configuration Release --output nupkg -p:PackageVersion=$NEW_VERSION
+        run: dotnet pack src/NetPlus.Algorithms/NetPlus.Algorithms.Comparison/NetPlus.Algorithms.Comparison.csproj --configuration Release --output nupkg -p:PackageVersion=$NEW_VERSION
 
       - name: Push NuGet Package
         run: |
-          nupkg_path="nupkg/NetPlus.Algorithms.Graphs.$NEW_VERSION.nupkg"
+          nupkg_path="nupkg/NetPlus.Algorithms.Comparison.$NEW_VERSION.nupkg"
           nuget push $nupkg_path -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_API_KEY }}
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
