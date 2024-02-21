@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Connection;
+using NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Entity;
+using NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Interfaces;
 
 namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
 {
@@ -37,6 +39,19 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
                     "The connection string must be specified.");
 
             service.AddSingleton(config);
+        }
+
+        public static void AddMongoRepository<T>(
+            this IServiceCollection service,
+            Action<MongoDbConfiguration>? configure = null) where T : BaseEntity
+        {
+            var config = new MongoDbConfiguration();
+            configure?.Invoke(config);
+
+            service.AddScoped<IMongoRepository<T>, MongoRepository<T>>(options =>
+                string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
+                    ? new MongoRepository<T>()
+                    : new MongoRepository<T>(config));
         }
     }
 }
