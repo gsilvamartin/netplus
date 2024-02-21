@@ -59,9 +59,17 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
             configure?.Invoke(config);
 
             service.AddTransient<IMongoRepository<T>, MongoRepository<T>>(options =>
-                string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
-                    ? new MongoRepository<T>()
-                    : new MongoRepository<T>(config));
+            {
+                var injectedConfig = options.GetService<MongoDbConfiguration>();
+
+                if (injectedConfig == null)
+                    throw new ArgumentNullException(nameof(MongoDbConfiguration),
+                        "The MongoDB configuration must be specified.");
+
+                return string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
+                    ? new MongoRepository<T>(injectedConfig)
+                    : new MongoRepository<T>(config);
+            });
         }
     }
 }
