@@ -21,7 +21,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
         /// <see cref="MongoDbConfiguration"/> class and register it as a singleton in the service collection.
         ///
         /// Reminder: If you don't call this method, you'll need to specify the configuration when you create a
-        /// <see cref="MongoRepository{T}"/> instance.
+        /// <see cref="MongoRepository{T}"/> instance using <see cref="AddMongoRepository{T}"/>.
         /// 
         /// </summary>
         /// <param name="service">Service Collection</param>
@@ -41,6 +41,16 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
             service.AddSingleton(config);
         }
 
+        /// <summary>
+        /// Registers the <see cref="IMongoRepository{T}"/> in the service collection.
+        ///
+        /// This method receives as optional parameter a configuration object to connect to the MongoDB database.
+        /// If the configuration object is not specified, the <see cref="MongoRepository{T}"/> will be registered
+        /// using the configuration used in the <see cref="ConfigureMongoDb"/> method.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
         public static void AddMongoRepository<T>(
             this IServiceCollection service,
             Action<MongoDbConfiguration>? configure = null) where T : BaseEntity
