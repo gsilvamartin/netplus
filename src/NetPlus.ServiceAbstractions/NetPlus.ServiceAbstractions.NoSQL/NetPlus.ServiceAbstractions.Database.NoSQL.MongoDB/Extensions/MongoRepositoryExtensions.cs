@@ -58,7 +58,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
             var config = new MongoDbConfiguration();
             configure?.Invoke(config);
 
-            service.AddScoped<IMongoRepository<T>, MongoRepository<T>>(options =>
+            service.AddTransient<IMongoRepository<T>, MongoRepository<T>>(options =>
                 string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
                     ? new MongoRepository<T>()
                     : new MongoRepository<T>(config));
