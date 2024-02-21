@@ -58,36 +58,6 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
             _collection = database.GetCollection<T>(GetCollectionName());
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MongoRepository{T}"/> class.
-        ///
-        /// This constructor is used when you want to configure the MongoDb
-        /// using a different connection string and database name for the specific entity.
-        /// </summary>
-        /// <param name="configure">MongoDB Configuration</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public MongoRepository(Action<MongoDbConfiguration>? configure = null)
-        {
-            var config = new MongoDbConfiguration();
-            configure?.Invoke(config);
-
-            if (config == null)
-                throw new ArgumentNullException(nameof(config));
-
-            if (string.IsNullOrEmpty(config.ConnectionString))
-                throw new ArgumentException("ConnectionString cannot be null or empty",
-                    nameof(config.ConnectionString));
-
-            if (string.IsNullOrEmpty(config.DatabaseName))
-                throw new ArgumentException("DatabaseName cannot be null or empty", nameof(config.DatabaseName));
-
-            var client = new MongoClient(config.ConnectionString);
-            var database = client.GetDatabase(config.DatabaseName);
-
-            _collection = database.GetCollection<T>(GetCollectionName());
-        }
-
         public async Task InsertAsync(T entity)
         {
             await _collection.InsertOneAsync(entity);
