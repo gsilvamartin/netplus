@@ -14,6 +14,11 @@ namespace NetPlus.ServiceAbstractions.Cache.Memory
     /// <inheritdoc/>
     public class MemoryCacheRepository<T> : IMemoryCacheRepository<T> where T : class
     {
+        /// <summary>
+        /// The in-memory cache.
+        ///
+        /// The key is the cache key and the value is a <see cref="CacheItem{T}"/> object.
+        /// </summary>
         private readonly ConcurrentDictionary<string, CacheItem<T>> _cache =
             new ConcurrentDictionary<string, CacheItem<T>>();
 
