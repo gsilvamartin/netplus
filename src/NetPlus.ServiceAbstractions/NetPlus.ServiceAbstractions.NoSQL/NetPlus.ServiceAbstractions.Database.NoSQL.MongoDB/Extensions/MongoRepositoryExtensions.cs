@@ -47,6 +47,8 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
         /// This method receives as optional parameter a configuration object to connect to the MongoDB database.
         /// If the configuration object is not specified, the <see cref="MongoRepository{T}"/> will be registered
         /// using the configuration used in the <see cref="ConfigureMongoDb"/> method.
+        ///
+        /// This method registers the <see cref="IMongoRepository{T}"/> as a transient service.
         /// </summary>
         /// <param name="service"></param>
         /// <param name="configure"></param>
@@ -59,6 +61,73 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB.Extensions
             configure?.Invoke(config);
 
             service.AddTransient<IMongoRepository<T>, MongoRepository<T>>(options =>
+            {
+                var injectedConfig = options.GetService<MongoDbConfiguration>();
+
+                if (injectedConfig == null)
+                    throw new ArgumentNullException(nameof(MongoDbConfiguration),
+                        "The MongoDB configuration must be specified.");
+
+                return string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
+                    ? new MongoRepository<T>(injectedConfig)
+                    : new MongoRepository<T>(config);
+            });
+        }
+        
+        /// <summary>
+        /// Registers the <see cref="IMongoRepository{T}"/> in the service collection.
+        ///
+        /// This method receives as optional parameter a configuration object to connect to the MongoDB database.
+        /// If the configuration object is not specified, the <see cref="MongoRepository{T}"/> will be registered
+        /// using the configuration used in the <see cref="ConfigureMongoDb"/> method.
+        ///
+        /// This method registers the <see cref="IMongoRepository{T}"/> as a scoped service.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void AddScopedMongoRepository<T>(
+            this IServiceCollection service,
+            Action<MongoDbConfiguration>? configure = null) where T : BaseEntity
+        {
+            var config = new MongoDbConfiguration();
+            configure?.Invoke(config);
+
+            service.AddScoped<IMongoRepository<T>, MongoRepository<T>>(options =>
+            {
+                var injectedConfig = options.GetService<MongoDbConfiguration>();
+
+                if (injectedConfig == null)
+                    throw new ArgumentNullException(nameof(MongoDbConfiguration),
+                        "The MongoDB configuration must be specified.");
+
+                return string.IsNullOrEmpty(config.ConnectionString) || string.IsNullOrEmpty(config.DatabaseName)
+                    ? new MongoRepository<T>(injectedConfig)
+                    : new MongoRepository<T>(config);
+            });
+        }
+        
+        
+        /// <summary>
+        /// Registers the <see cref="IMongoRepository{T}"/> in the service collection.
+        ///
+        /// This method receives as optional parameter a configuration object to connect to the MongoDB database.
+        /// If the configuration object is not specified, the <see cref="MongoRepository{T}"/> will be registered
+        /// using the configuration used in the <see cref="ConfigureMongoDb"/> method.
+        ///
+        /// This method registers the <see cref="IMongoRepository{T}"/> as a singleton service.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void AddSingletonMongoRepository<T>(
+            this IServiceCollection service,
+            Action<MongoDbConfiguration>? configure = null) where T : BaseEntity
+        {
+            var config = new MongoDbConfiguration();
+            configure?.Invoke(config);
+
+            service.AddSingleton<IMongoRepository<T>, MongoRepository<T>>(options =>
             {
                 var injectedConfig = options.GetService<MongoDbConfiguration>();
 
