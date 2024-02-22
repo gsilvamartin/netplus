@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using NetPlus.ServiceAbstractions.Cache.Redis.Configuration;
+using NetPlus.ServiceAbstractions.Cache.Redis.Interfaces;
 using StackExchange.Redis;
 
 namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
@@ -17,7 +18,7 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
         /// This configuration object is used to connect to the Redis server.
         ///
         /// Reminder: If you don't call this method, you'll need to specify the configuration when you create a
-        /// RedisRepository instance using <see cref="AddRedisRepository"/>.
+        /// RedisRepository instance using AddRedisRepository.
         ///
         /// </summary>
         /// <param name="service">Service Collection</param>
@@ -40,7 +41,7 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
         /// <summary>
         /// Registers the <see cref="IDatabase"/> for Redis in the service collection.
         /// This method allows you to configure and register the Redis database connection options.
-        /// It registers the <see cref="IDatabase"/> as a transient service.
+        /// It registers the RedisRepository as a transient service.
         /// </summary>
         /// <param name="service">The <see cref="IServiceCollection"/> to register the Redis services.</param>
         /// <param name="configure">
@@ -56,16 +57,16 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
         /// <exception cref="ArgumentNullException">
         /// Thrown if the Redis configuration is not specified.
         /// </exception>
-        public static void AddRedisRepository(
+        public static void AddRedisRepository<T>(
             this IServiceCollection service,
-            Action<RedisRepositoryOptions>? configure = null)
+            Action<RedisRepositoryOptions>? configure = null) where T : class
         {
             var config = new RedisRepositoryOptions();
             configure?.Invoke(config);
 
-            service.AddTransient<IDatabase>(options =>
+            service.AddTransient(typeof(IRedisRepository<T>), provider =>
             {
-                var injectedConfig = options.GetService<RedisRepositoryOptions>();
+                var injectedConfig = provider.GetService<RedisRepositoryOptions>();
 
                 if (injectedConfig == null)
                     throw new ArgumentNullException(nameof(injectedConfig),
@@ -82,14 +83,17 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
                     Ssl = injectedConfig.ConnectionString.Contains("ssl=true"),
                 };
 
-                return ConnectionMultiplexer.Connect(configurationOptions).GetDatabase(injectedConfig.DatabaseNumber);
+                var connectionMultiplexer = ConnectionMultiplexer.Connect(configurationOptions);
+                var database = connectionMultiplexer.GetDatabase(injectedConfig.DatabaseNumber);
+
+                return new RedisRepository<T>(database);
             });
         }
 
         /// <summary>
         /// Registers the <see cref="IDatabase"/> for Redis in the service collection.
         /// This method allows you to configure and register the Redis database connection options.
-        /// It registers the <see cref="IDatabase"/> as a transient service.
+        /// It registers the RedisRepository as a scoped service.
         /// </summary>
         /// <param name="service">The <see cref="IServiceCollection"/> to register the Redis services.</param>
         /// <param name="configure">
@@ -105,16 +109,16 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
         /// <exception cref="ArgumentNullException">
         /// Thrown if the Redis configuration is not specified.
         /// </exception>
-        public static void AddScopedRedisRepository(
+        public static void AddScopedRedisRepository<T>(
             this IServiceCollection service,
-            Action<RedisRepositoryOptions>? configure = null)
+            Action<RedisRepositoryOptions>? configure = null) where T : class
         {
             var config = new RedisRepositoryOptions();
             configure?.Invoke(config);
 
-            service.AddScoped<IDatabase>(options =>
+            service.AddScoped(typeof(IRedisRepository<T>), provider =>
             {
-                var injectedConfig = options.GetService<RedisRepositoryOptions>();
+                var injectedConfig = provider.GetService<RedisRepositoryOptions>();
 
                 if (injectedConfig == null)
                     throw new ArgumentNullException(nameof(injectedConfig),
@@ -131,14 +135,17 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
                     Ssl = injectedConfig.ConnectionString.Contains("ssl=true"),
                 };
 
-                return ConnectionMultiplexer.Connect(configurationOptions).GetDatabase(injectedConfig.DatabaseNumber);
+                var connectionMultiplexer = ConnectionMultiplexer.Connect(configurationOptions);
+                var database = connectionMultiplexer.GetDatabase(injectedConfig.DatabaseNumber);
+
+                return new RedisRepository<T>(database);
             });
         }
 
         /// <summary>
         /// Registers the <see cref="IDatabase"/> for Redis in the service collection.
         /// This method allows you to configure and register the Redis database connection options.
-        /// It registers the <see cref="IDatabase"/> as a singleton service.
+        /// It registers the RedisRepository as a singleton service.
         /// </summary>
         /// <param name="service">The <see cref="IServiceCollection"/> to register the Redis services.</param>
         /// <param name="configure">
@@ -154,16 +161,16 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
         /// <exception cref="ArgumentNullException">
         /// Thrown if the Redis configuration is not specified.
         /// </exception>
-        public static void AddSingletonRedisRepository(
+        public static void AddSingletonRedisRepository<T>(
             this IServiceCollection service,
-            Action<RedisRepositoryOptions>? configure = null)
+            Action<RedisRepositoryOptions>? configure = null) where T : class
         {
             var config = new RedisRepositoryOptions();
             configure?.Invoke(config);
 
-            service.AddSingleton<IDatabase>(options =>
+            service.AddSingleton(typeof(IRedisRepository<T>), provider =>
             {
-                var injectedConfig = options.GetService<RedisRepositoryOptions>();
+                var injectedConfig = provider.GetService<RedisRepositoryOptions>();
 
                 if (injectedConfig == null)
                     throw new ArgumentNullException(nameof(injectedConfig),
@@ -180,7 +187,10 @@ namespace NetPlus.ServiceAbstractions.Cache.Redis.Extensions
                     Ssl = injectedConfig.ConnectionString.Contains("ssl=true"),
                 };
 
-                return ConnectionMultiplexer.Connect(configurationOptions).GetDatabase(injectedConfig.DatabaseNumber);
+                var connectionMultiplexer = ConnectionMultiplexer.Connect(configurationOptions);
+                var database = connectionMultiplexer.GetDatabase(injectedConfig.DatabaseNumber);
+
+                return new RedisRepository<T>(database);
             });
         }
     }
