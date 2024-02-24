@@ -2,9 +2,7 @@
   <img width="300" src="https://github.com/gsilvamartin/netplus/assets/42881020/172bd6b3-d8e7-4081-8166-2c7c18daff8a" />
 </p>
 
----
-
-# Welcome to NetPlus
+## 
 
 Welcome to NetPlus, an expansive toolkit meticulously crafted for .NET developers. This comprehensive suite of modules is designed to enhance various facets of your application development journey. Let's embark on a journey through each module, exploring a rich tapestry of functionalities and additional examples.
 
@@ -49,3 +47,18 @@ Welcome to NetPlus, an expansive toolkit meticulously crafted for .NET developer
 
 - **Temperature**
   - [Temperature Converter](https://example.com/cosine)
+ 
+
+## NetPlus.Converters
+
+> [!NOTE]
+> Enhance testing with NetPlus.Generators, generating synthetic data for various structures, including random graphs, mock HTTP responses, and simulated user interactions.
+
+- **Generic Generator**
+  - [Data Generator]("#")
+
+- **GUID Generator**
+  - [Guid Generator]("#")
+
+- **Password Generator**
+  - [Password GeneratorGenerator]("#")
