@@ -3,19 +3,15 @@
   href: ../index.md
 - name: Getting Started
   href: getting-started.md
-
 - name: NetPlus Modules
-  - name: Algorithms
-    href: ../index.md
-  
-  - name: Converters
-    href: ../index.md
-  
-  - name: Generators
-    href: ../index.md
-  
-  - name: Validations
-    href: ../index.md
-  
-  - name: Service Abstractions
-    href: ../index.md
+  items:
+    - name: Algorithms
+      href: ../index.md
+    - name: Converters
+      href: ../index.md
+    - name: Generators
+      href: ../index.md
+    - name: Validations
+      href: ../index.md
+    - name: Service Abstractions
+      href: ../index.md
