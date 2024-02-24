@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace NetPlus.Extensions.LINQ
 {
     /// <summary>
