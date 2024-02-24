@@ -43,7 +43,7 @@
     - name: Sorting
       items:
         - name: BubbleSort
-          href: ../index.md
+          href: algorithms/sorting/bubblesort.md
         - name: HeapSort
           href: ../index.md
         - name: MergeSort
