@@ -5,4 +5,8 @@
   href: getting-started.md
 
 - name: NetPlus Modules
-  href: modules-toc.yml
+  - name: Algorithms
+  - name: Converters
+  - name: Generators
+  - name: Validations
+  - name: Service Abstractions
