@@ -29,9 +29,9 @@
     - name: Search
       items:
         - name: AStarSearch
-          href: ../index.md
+          href: algorithms/search/astarsearch.md
         - name: BinarySearch
-          href: ../index.md
+          href: algorithms/search/binarysearch.md
         - name: FibonacciSearch
           href: ../index.md
         - name: InterpolatedSearch
@@ -45,11 +45,11 @@
         - name: BubbleSort
           href: algorithms/sorting/bubblesort.md
         - name: HeapSort
-          href: ../index.md
+          href: algorithms/sorting/heapsort.md
         - name: MergeSort
-          href: ../index.md
+          href: algorithms/sorting/mergesort.md
         - name: SelectionSort
-          href: ../index.md
+          href: algorithms/sorting/selectionsort.md
           
 - name: Converters
   items:
