@@ -6,70 +6,70 @@
   href: getting-started.md
 
 - name: NetPlus Modules
-
-- name: Algorithms
   items:
-    - name: Comparison
+    - name: Algorithms
       items:
-        - name: CosineSimilarity
-          href: ../index.md
+        - name: Comparison
+          items:
+            - name: CosineSimilarity
+              href: ../index.md
+            
+            - name: JaccardSimilarity
+              href: ../index.md
+            
+            - name: JansenShannonSimilarity
+              href: ../index.md
+              
+            - name: JaroWinklerSimilarity
+              href: ../index.md
+            
+            - name: LevenshteinSimilarity
+              href: ../index.md
+  
+            - name: NGramSimilarity
+              href: ../index.md
         
-        - name: JaccardSimilarity
+    - name: Graphs
+      items:
+        - name: BreadthFirstSearch
           href: ../index.md
-        
-        - name: JansenShannonSimilarity
+  
+        - name: DepthFirstSearch
           href: ../index.md
-          
-        - name: JaroWinklerSimilarity
+  
+    - name: Search
+      items:
+        - name: AStarSearch
           href: ../index.md
-        
-        - name: LevenshteinSimilarity
+  
+        - name: BinarySearch
           href: ../index.md
-
-        - name: NGramSimilarity
+  
+        - name: FibonacciSearch
           href: ../index.md
-        
-   - name: Graphs
-        items:
-          - name: BreadthFirstSearch
-            href: ../index.md
-
-          - name: DepthFirstSearch
-            href: ../index.md
-
-   - name: Search
-        items:
-          - name: AStarSearch
-            href: ../index.md
-
-          - name: BinarySearch
-            href: ../index.md
-
-          - name: FibonacciSearch
-            href: ../index.md
-
-          - name: InterpolatedSearch
-            href: ../index.md
-
-          - name: JumpSearch
-            href: ../index.md
-
-          - name: TernarySearch
-            href: ../index.md
-
-   - name: Sorting
-        items:
-          - name: BubbleSort
-            href: ../index.md
-
-          - name: HeapSort
-            href: ../index.md
-
-          - name: MergeSort
-            href: ../index.md
-
-          - name: SelectionSort
-            href: ../index.md
+  
+        - name: InterpolatedSearch
+          href: ../index.md
+  
+        - name: JumpSearch
+          href: ../index.md
+  
+        - name: TernarySearch
+          href: ../index.md
+  
+    - name: Sorting
+      items:
+        - name: BubbleSort
+          href: ../index.md
+  
+        - name: HeapSort
+          href: ../index.md
+  
+        - name: MergeSort
+          href: ../index.md
+  
+        - name: SelectionSort
+          href: ../index.md
 
 - name: Converters
   href: ../index.md
