@@ -1,4 +1,119 @@
+- name: Get started
 - name: Introduction
-  href: introduction.md
+  href: ../index.md
 - name: Getting Started
   href: getting-started.md
+- name: NetPlus Modules
+- name: Algorithms
+  items:
+    - name: Comparison
+      items:
+        - name: CosineSimilarity
+          href: ../index.md
+        - name: JaccardSimilarity
+          href: ../index.md
+        - name: JansenShannonSimilarity
+          href: ../index.md
+        - name: JaroWinklerSimilarity
+          href: ../index.md
+        - name: LevenshteinSimilarity
+          href: ../index.md
+        - name: NGramSimilarity
+          href: ../index.md
+    - name: Graphs
+      items:
+        - name: BreadthFirstSearch
+          href: ../index.md
+        - name: DepthFirstSearch
+          href: ../index.md
+    - name: Search
+      items:
+        - name: AStarSearch
+          href: algorithms/search/astarsearch.md
+        - name: BinarySearch
+          href: algorithms/search/binarysearch.md
+        - name: FibonacciSearch
+          href: ../index.md
+        - name: InterpolatedSearch
+          href: ../index.md
+        - name: JumpSearch
+          href: ../index.md
+        - name: TernarySearch
+          href: ../index.md
+    - name: Sorting
+      items:
+        - name: BubbleSort
+          href: algorithms/sorting/bubblesort.md
+        - name: HeapSort
+          href: algorithms/sorting/heapsort.md
+        - name: MergeSort
+          href: algorithms/sorting/mergesort.md
+        - name: SelectionSort
+          href: algorithms/sorting/selectionsort.md
+          
+- name: Converters
+  items:
+    - name: Date
+      items:
+        - name: DateTimeConverter
+          href: ../index.md
+
+    - name: Temperature
+      items:
+        - name: TemperatureConverter
+          href: ../index.md
+
+- name: Generators
+  items:
+    - name: GenericGenerator
+      items:
+        - name: DataGenerator
+          href: ../index.md
+
+    - name: GuidGenerator
+      items:
+        - name: GuidGenerator
+          href: ../index.md
+
+    - name: PasswordGenerator
+      items:
+        - name: PasswordGenerator
+          href: ../index.md
+
+- name: Validators          
+  items:
+    - name: Date
+      items:
+        - name: DateValidator
+          href: ../index.md
+
+    - name: Numeric
+      items:
+        - name: NumericValidator
+          href: ../index.md
+
+    - name: RegexExtensions
+      items:
+        - name: StringValidator
+          href: ../index.md  
+          
+- name: Service Abstractions
+  items:
+    - name: Cache
+      items:
+        - name: Redis
+          href: ../index.md
+        - name: Memory
+          href: ../index.md
+
+    - name: Database
+      items:
+        - name: NoSQL
+          items:
+            - name: MongoDB
+              href: ../index.md
+
+        - name: SQL
+          items:
+            - name: SQLServer
+              href: ../index.md
