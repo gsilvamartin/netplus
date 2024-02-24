@@ -1,158 +1,51 @@
 <p align="center">
-  <img width="300"
-    src="https://github.com/gsilvamartin/netplus/assets/42881020/172bd6b3-d8e7-4081-8166-2c7c18daff8a" />
+  <img width="300" src="https://github.com/gsilvamartin/netplus/assets/42881020/172bd6b3-d8e7-4081-8166-2c7c18daff8a" />
 </p>
 
-##
+---
 
-Welcome to NetPlus, an expansive toolkit meticulously crafted for .NET developers. This
-comprehensive suite of modules is designed to enhance various facets of your application development
-journey. Let's embark on a journey through each module, exploring a rich tapestry of functionalities
-and additional examples.
+# Welcome to NetPlus
 
-# NetPlus.Algorithms
+Welcome to NetPlus, an expansive toolkit meticulously crafted for .NET developers. This comprehensive suite of modules is designed to enhance various facets of your application development journey. Let's embark on a journey through each module, exploring a rich tapestry of functionalities and additional examples.
 
-> [!NOTE]
-> Explore specialized classes for sorting algorithms (Sorting), graphs (Graph), comparison
-> (Comparison), and search (Search).
-
-<ul>
-  <li>
-    <details>
-      <summary>
-        <strong>Comparison</strong>
-      </summary>
-
-      <ul>
-        <li>
-          <a href="https://example.com/cosine">Cosine Similarity</a>
-        </li>
-        <li>
-          <a href="https://example.com/jaccard">Jaccard Similarity</a>
-        </li>
-        <li>
-          <a href="https://example.com/jansenshannon">JansenShannon Similarity</a>
-        </li>
-        <li>
-          <a href="https://example.com/jarcwinkler">Jarc Winkler Similarity</a>
-        </li>
-        <li>
-          <a href="https://example.com/levenshtein">Levenshtein Similarity</a>
-        </li>
-        <li>
-          <a href="https://example.com/ngram">NGram Similarity</a>
-        </li>
-      </ul>
-    </details>
-
-  </li>
-
-  <li>
-    <details>
-      <summary>
-        <strong>Graph</strong>
-      </summary>
-
-      <ul>
-        <li>
-          <a href="https://example.com/bfs">Breadth-First Search</a>
-        </li>
-        <li>
-          <a href="https://example.com/dfs">Depth-First Search</a>
-        </li>
-      </ul>
-    </details>
-
-  </li>
-
-  <li>
-    <details>
-      <summary>
-        <strong>Search</strong>
-      </summary>
-
-      <ul>
-        <li>
-          <a href="https://example.com/a-star">A*</a>
-        </li>
-        <li>
-          <a href="https://example.com/binary">Binary</a>
-        </li>
-        <li>
-          <a href="https://example.com/fibonacci">Fibonacci</a>
-        </li>
-        <li>
-          <a href="https://example.com/interpolated">Interpolated</a>
-        </li>
-        <li>
-          <a href="https://example.com/jump">Jump Search</a>
-        </li>
-        <li>
-          <a href="https://example.com/ternary">Ternary Search</a>
-        </li>
-      </ul>
-    </details>
-
-  </li>
-  <li>
-    <details>
-      <summary>
-        <strong>Sorting</strong>
-      </summary>
-
-      <ul>
-        <li>
-          <a href="https://example.com/bubble">Bubble Sort</a>
-        </li>
-        <li>
-          <a href="https://example.com/heap">Heap Sort</a>
-        </li>
-        <li>
-          <a href="https://example.com/merge">Merge Sort</a>
-        </li>
-        <li>
-          <a href="https://example.com/selection">Selection Sort</a>
-        </li>
-      </ul>
-    </details>
-
-  </li>
-</ul>
-
-# NetPlus.Converters
+## NetPlus.Algorithms
 
 > [!NOTE]
-> NetPlus.Converters provides versatile data transformation tools, including binary-to-text,
-> JSON serialization, and custom object-to-object conversions.
+> Explore specialized classes for sorting algorithms (Sorting), graphs (Graph), comparison (Comparison), and search (Search).
 
-<ul>
-  <li>
-    <details>
-      <summary>
-        <strong>Date</strong>
-      </summary>
+- **Comparison**
+  - [Cosine Similarity](https://example.com/cosine)
+  - [Jaccard Similarity](https://example.com/jaccard)
+  - [JansenShannon Similarity](https://example.com/jansenshannon)
+  - [Jarc Winkler Similarity](https://example.com/jarcwinkler)
+  - [Levenshtein Similarity](https://example.com/levenshtein)
+  - [NGram Similarity](https://example.com/ngram)
 
-      <ul>
-        <li>
-          <a href="https://example.com/cosine">Date Converter</a>
-        </li>
-      </ul>
-    </details>
+- **Graph**
+  - [Breadth-First Search](https://example.com/bfs)
+  - [Depth-First Search](https://example.com/dfs)
 
-  </li>
+- **Search**
+  - [A*](https://example.com/a-star)
+  - [Binary](https://example.com/binary)
+  - [Fibonacci](https://example.com/fibonacci)
+  - [Interpolated](https://example.com/interpolated)
+  - [Jump Search](https://example.com/jump)
+  - [Ternary Search](https://example.com/ternary)
 
-    <li>
-    <details>
-      <summary>
-        <strong>Temperature</strong>
-      </summary>
+- **Sorting**
+  - [Bubble Sort](https://example.com/bubble)
+  - [Heap Sort](https://example.com/heap)
+  - [Merge Sort](https://example.com/merge)
+  - [Selection Sort](https://example.com/selection)
 
-      <ul>
-        <li>
-          <a href="https://example.com/cosine">Temperature Converter</a>
-        </li>
-      </ul>
-    </details>
+## NetPlus.Converters
 
-  </li>
-<ul>
+> [!NOTE]
+> NetPlus.Converters provides versatile data transformation tools, including binary-to-text, JSON serialization, and custom object-to-object conversions.
+
+- **Date**
+  - [Date Converter](https://example.com/cosine)
+
+- **Temperature**
+  - [Temperature Converter](https://example.com/cosine)
