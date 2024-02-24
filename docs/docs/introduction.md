@@ -62,3 +62,34 @@ Welcome to NetPlus, an expansive toolkit meticulously crafted for .NET developer
 
 - **Password Generator**
   - [Password GeneratorGenerator]("#")
+ 
+## NetPlus.Validations
+
+> [!NOTE]
+> Explore data integrity in NetPlus.Validations beyond email validation. Check numeric ranges, string lengths, and implement custom validation conditions for a holistic approach to ensuring data accuracy and consistency in your application.
+
+- **Date Validator**
+  - [Date Validator]("#")
+
+- **Numeric Validator**
+  - [Numeric Validator]("#")
+
+- **String Validator**
+  - [String Validator]("#")
+
+## NetPlus.ServiceAbstractions
+
+> [!NOTE]
+> Extend your service integration capabilities in NetPlus.ServiceAbstractions. Explore abstractions for popular services like MongoDB and Redis, along with others such as Azure Storage, Elasticsearch, and more. This module ensures seamless integration and adaptability to evolving service requirements in your application.
+
+- **MongoDB**
+  - [MongoDB]("#")
+
+- **Redis**
+  - [Redis]("#")
+
+
+
+
+
+
