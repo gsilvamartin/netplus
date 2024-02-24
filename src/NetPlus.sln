@@ -59,6 +59,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPlus.Validators.RegexExt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPlus.Algorithms.Search", "NetPlus.Algorithms\NetPlus.Algorithms.Search\NetPlus.Algorithms.Search.csproj", "{83A341DA-C6B1-4B62-AECD-4D79B35B63EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{E03355F8-208B-4A11-B7DF-FEA41833CD8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPlus.Extensions.LINQ", "NetPlus.Extensions\NetPlus.Extensions.LINQ\NetPlus.Extensions.LINQ.csproj", "{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +141,10 @@ Global
 		{83A341DA-C6B1-4B62-AECD-4D79B35B63EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A341DA-C6B1-4B62-AECD-4D79B35B63EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A341DA-C6B1-4B62-AECD-4D79B35B63EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +172,7 @@ Global
 		{72D9BC29-2293-4D1A-B680-E38DA041F52E} = {2294CB79-DD11-4772-AEBB-5BB0E4BFD2E4}
 		{70A1D38E-C20F-4276-9EC3-A9A1B789C325} = {2294CB79-DD11-4772-AEBB-5BB0E4BFD2E4}
 		{83A341DA-C6B1-4B62-AECD-4D79B35B63EE} = {71BD4EC1-2F94-41BB-8D7A-2026151C351C}
+		{6AED8ECA-1A26-48BE-9ED7-21FB1F80DECD} = {E03355F8-208B-4A11-B7DF-FEA41833CD8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79FC6639-012A-465C-8F34-20506ACB4F59}

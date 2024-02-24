@@ -14,7 +14,7 @@ namespace NetPlus.Algorithms.Sorting
         /// <typeparam name="T">The type of elements in the array, must implement IComparable{T}.</typeparam>
         /// <param name="array">The array to be sorted.</param>
         /// <returns>The sorted array.</returns>
-        public static T[] Sort<T>(T[] array) where T : IComparable<T>
+        public static T[] ExecuteHeapSort<T>(T[] array) where T : IComparable<T>
         {
             var n = array.Length;
 
