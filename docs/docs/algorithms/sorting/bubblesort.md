@@ -10,16 +10,16 @@ ExecuteBubbleSort<T>(this T[] array) where T : IComparable<T>
 
 Sorts an array using the Bubble Sort algorithm in ascending order.
 
-#### Parameters
+## Parameters
 
 - `array` (Type: `T[]`): The array to be sorted.
 
-#### Returns
+## Returns
 
 - Type: `T[]`
 - Description: The sorted array in ascending order.
 
-#### Example
+## Example
 
 ```csharp
 using NetPlus.Algorithms.Sorting;
@@ -34,7 +34,7 @@ var sortedArray = myArray.ExecuteBubbleSort();
 Console.WriteLine(string.Join(", ", sortedArray));
 ```
 
-#### Usage
+## Usage
 
 To use the BubbleSort class, simply call the ExecuteBubbleSort method on your array.
 
@@ -43,7 +43,7 @@ int[] myArray = { 4, 2, 7, 1, 9 };
 var sortedArray = BubbleSort.ExecuteBubbleSort(myArray);
 ```
 
-#### Remarks
+## Remarks
 
 The BubbleSort class uses the Bubble Sort algorithm to sort arrays in ascending order.
 It is an in-place sorting algorithm.
