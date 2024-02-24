@@ -9,23 +9,25 @@
     - name: Comparison
       items:
         - name: CosineSimilarity
-          href: ../index.md
+          href: algorithms/comparison/cosinesimilarity.md
         - name: JaccardSimilarity
-          href: ../index.md
+          href: algorithms/comparison/jaccardsimilarity.md
         - name: JansenShannonSimilarity
-          href: ../index.md
+          href: algorithms/comparison/jansenshannonsimilarity.md
         - name: JaroWinklerSimilarity
-          href: ../index.md
+          href: algorithms/comparison/jarowinklersimilarity.md
         - name: LevenshteinSimilarity
-          href: ../index.md
+          href: algorithms/comparison/levenshteinsimilarity.md
         - name: NGramSimilarity
-          href: ../index.md
+          href: algorithms/comparison/ngramsimilarity.md
+          
     - name: Graphs
       items:
         - name: BreadthFirstSearch
-          href: ../index.md
+          href: algorithms/graphs/breadthfirstsearch.md
         - name: DepthFirstSearch
-          href: ../index.md
+          href: algorithms/graphs/depthfirstsearch.md
+          
     - name: Search
       items:
         - name: AStarSearch
@@ -33,13 +35,14 @@
         - name: BinarySearch
           href: algorithms/search/binarysearch.md
         - name: FibonacciSearch
-          href: ../index.md
+          href: algorithms/search/fibonaccisearch.md
         - name: InterpolatedSearch
-          href: ../index.md
+          href: algorithms/search/interpolatedsearch.md
         - name: JumpSearch
-          href: ../index.md
+          href: algorithms/search/jumpsearch.md
         - name: TernarySearch
-          href: ../index.md
+          href: algorithms/search/ternarysearch.md
+          
     - name: Sorting
       items:
         - name: BubbleSort
