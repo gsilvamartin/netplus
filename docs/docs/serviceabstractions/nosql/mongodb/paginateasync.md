@@ -27,7 +27,7 @@ In this example, `paginatedEntities` will be an `IEnumerable<T>` of the entities
 
 This method uses the MongoDB driver's `Skip` and `Limit` methods to paginate the entities in the MongoDB collection based on the specified page and page size.
 
-> [!INFO]
+> [!NOTE]
 > If the `page` or `pageSize` parameters are less than 1, the MongoDB driver will throw an `ArgumentException`.
 
 > [!WARNING]
@@ -63,7 +63,7 @@ In this example, `paginatedEntities` will be an `IEnumerable<T>` of the entities
 
 This method uses the MongoDB driver's `Find`, `Skip`, and `Limit` methods to paginate the entities in the MongoDB collection that match the specified filter based on the specified page and page size.
 
-> [!INFO]
+> [!NOTE]
 > If the `page` or `pageSize` parameters are less than 1, the MongoDB driver will throw an `ArgumentException`.
 
 > [!WARNING]
@@ -100,7 +100,7 @@ In this example, `paginatedEntities` will be an `IEnumerable<T>` of the entities
 
 This method uses the MongoDB driver's `Find`, `Sort`, `Skip`, and `Limit` methods to paginate and sort the entities in the MongoDB collection based on the specified `SortDefinition<T>`, page, and page size.
 
-> [!INFO]
+> [!NOTE]
 > If the `page` or `pageSize` parameters are less than 1, the MongoDB driver will throw an `ArgumentException`.
 
 > [!WARNING]
@@ -139,7 +139,7 @@ In this example, `paginatedEntities` will be an `IEnumerable<T>` of the entities
 
 This method uses the MongoDB driver's `Find`, `Sort`, `Skip`, and `Limit` methods to paginate and sort the entities in the MongoDB collection that match the specified filter based on the specified `SortDefinition<T>`, page, and page size.
 
-> [!INFO]
+> [!NOTE]
 > If the `page` or `pageSize` parameters are less than 1, the MongoDB driver will throw an `ArgumentException`.
 
 > [!WARNING]

@@ -27,7 +27,7 @@ In this example, `count` will be the count of the entities in the MongoDB collec
 
 This method uses the MongoDB driver's `Aggregate` and `ToListAsync` methods to perform an aggregation pipeline operation on the MongoDB collection and get the resulting entities as a list.
 
-> [!INFO]
+> [!NOTE]
 > If the `pipeline` parameter is `null`, the MongoDB driver will throw an `ArgumentNullException`.
 
 > [!WARNING]

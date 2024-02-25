@@ -27,7 +27,7 @@ In this example, `projectedEntities` will be an `IEnumerable<T>` of the projecte
 
 This method uses the MongoDB driver's `Find`, `Project`, and `ToListAsync` methods to perform a projection operation on all entities in the MongoDB collection and get the projected entities as a list.
 
-> [!INFO]
+> [!NOTE]
 > If the `projection` parameter is `null`, the MongoDB driver will throw an `ArgumentNullException`.
 
 > [!WARNING]

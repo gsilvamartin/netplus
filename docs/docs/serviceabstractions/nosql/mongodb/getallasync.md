@@ -24,7 +24,7 @@ In this example, `allEntities` will be an `IEnumerable<MyEntity>` that contains 
 
 ### Remarks
 
-> [!info]
+> [!NOTE]
 > The `GetAllAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve all entities from the MongoDB collection.
 
 > [!warning]

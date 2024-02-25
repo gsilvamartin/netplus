@@ -24,7 +24,7 @@ In this example, the `_repository` is an instance of `IMongoRepository<MyEntity>
 
 ### Remarks
 
-> [!info]
+> [!NOTE]
 > The `DeleteAsync` method uses the MongoDB driver's `DeleteOneAsync` method to delete the entity from the MongoDB collection. The method constructs a filter using the provided `id` and the MongoDB driver's `Filter.Eq` method.
 
 > [!warning]

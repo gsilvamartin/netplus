@@ -27,7 +27,7 @@ In this example, `entities` will be a `List<T>` of the entities in the MongoDB c
 
 This method uses the MongoDB driver's `AsQueryable` method to provide a LINQ IQueryable interface to access the MongoDB collection.
 
-> [!INFO]
+> [!NOTE]
 > The returned `IQueryable<T>` can be used to build complex queries against the MongoDB collection using LINQ.
 
 > [!WARNING]

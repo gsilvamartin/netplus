@@ -29,7 +29,7 @@ In this example, `MyEntity` is a class that inherits from `BaseEntity` and has t
 
 ### Remarks
 
-> [!info]
+> [!NOTE]
 > The `InsertAsync` method uses the MongoDB driver's `InsertOneAsync` method to insert the entity into the MongoDB collection.
 
 > [!warning]

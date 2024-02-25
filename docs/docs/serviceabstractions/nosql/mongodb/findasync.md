@@ -26,7 +26,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided `filter` to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified filter, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]
@@ -61,7 +61,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided `filter` to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified filter, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]
@@ -95,7 +95,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided JSON filter to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified filter, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]
@@ -130,7 +130,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided `filterBuilder` to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified filter, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]
@@ -165,7 +165,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided property name and value to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified property and value, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]
@@ -200,7 +200,7 @@ In this example, `filteredEntities` will be an `IEnumerable<MyEntity>` that cont
 
 This overload of the `FindAsync` method uses the MongoDB driver's `Find` and `ToListAsync` methods to retrieve the entities from the MongoDB collection. The method uses the provided dictionary of filters to construct a filter that matches the specified conditions.
 
-> [!INFO]
+> [!NOTE]
 > If no entities match the specified filters, the result of the task is an empty `IEnumerable<T>`.
 
 > [!WARNING]

@@ -24,7 +24,7 @@ In this example, `myEntity` will be an instance of `MyEntity` if an entity with 
 
 ### Remarks
 
-> [!info]
+> [!NOTE]
 > The `GetByIdAsync` method uses the MongoDB driver's `Find` and `FirstOrDefaultAsync` methods to retrieve the entity from the MongoDB collection. The method constructs a filter using the provided `id` and the MongoDB driver's `Filter.Eq` method.
 
 > [!warning]

@@ -30,7 +30,7 @@ In this example, `MyEntity` is a class that inherits from `BaseEntity` and has t
 
 ### Remarks
 
-> [!info]
+> [!NOTE]
 > The `UpdateAsync` method uses the MongoDB driver's `ReplaceOneAsync` method to update the entity in the MongoDB collection. The method constructs a filter using the provided `id` and the MongoDB driver's `Filter.Eq` method.
 
 > [!warning]

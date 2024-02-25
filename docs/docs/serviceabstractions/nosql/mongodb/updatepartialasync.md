@@ -28,7 +28,7 @@ In this example, `wasUpdated` will be `true` if the entity with the id `"5f8f8b9
 
 This method uses the MongoDB driver's `UpdateOneAsync` method to partially update an entity in the MongoDB collection based on the specified `UpdateDefinition<T>` and id.
 
-> [!INFO]
+> [!NOTE]
 > If the `id` parameter is not a valid `ObjectId`, the `ObjectId.Parse` method will throw a `FormatException`.
 
 > [!WARNING]
