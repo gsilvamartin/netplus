@@ -169,11 +169,6 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
             return await _collection.Find(filter).Project(projection).ToListAsync();
         }
 
-        public async Task<long> CountAsync()
-        {
-            return await _collection.CountDocumentsAsync(_ => true);
-        }
-
         public async Task<bool> AnyAsync(Dictionary<string, object> filters)
         {
             var filterBuilder = Builders<T>.Filter;
@@ -181,6 +176,11 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
                 (current, kvp) => current & filterBuilder.Eq(kvp.Key, kvp.Value));
 
             return await _collection.Find(filter).AnyAsync();
+        }
+
+        public async Task<long> CountAsync()
+        {
+            return await _collection.CountDocumentsAsync(_ => true);
         }
 
         public async Task<long> CountAsync(Expression<Func<T, bool>> filter)
@@ -308,8 +308,7 @@ namespace NetPlus.ServiceAbstractions.Database.NoSQL.MongoDB
         {
             return await _collection.Aggregate(pipeline).ToListAsync();
         }
-
-
+        
         public async Task<bool> DeleteManyAsync(Expression<Func<T, bool>> filter)
         {
             var result = await _collection.DeleteManyAsync(filter);
