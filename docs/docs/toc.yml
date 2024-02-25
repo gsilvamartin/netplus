@@ -105,7 +105,41 @@
     - name: Cache
       items:
         - name: Redis
-          href: ../index.md
+          items:
+            - name: Connection Guide
+              href: serviceabstractions/cache/redis/redisconnection.md
+              - name: Operations
+              
+              - name: GetAsync
+                href: serviceabstractions/cache/redis/getasync.md
+                
+              - name: GetAllAsync
+                href: serviceabstractions/cache/redis/getallasync.md
+
+              - name: SetAsync
+                href: serviceabstractions/cache/redis/setasync.md
+
+              - name: SetAllAsync
+                href: serviceabstractions/cache/redis/setallasync.md
+
+              - name: RemoveAsync
+                href: serviceabstractions/cache/redis/removeasync.md
+
+              - name: RemoveAllAsync
+                href: serviceabstractions/cache/redis/removeallasync.md
+
+              - name: IncrementAsync
+                href: serviceabstractions/cache/redis/incrementasync.md
+
+              - name: DecrementAsync
+                href: serviceabstractions/cache/redis/decrementasync.md
+
+              - name: KeyExistsAsync
+                href: serviceabstractions/cache/redis/keyexistsasync.md
+
+              - name: SearchKeysAsync
+                href: serviceabstractions/cache/redis/searchkeysasync.md
+
         - name: Memory
           href: ../index.md
 
