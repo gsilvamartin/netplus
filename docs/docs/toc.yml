@@ -59,46 +59,46 @@
     - name: Date
       items:
         - name: DateTimeConverter
-          href: ../index.md
+          href: algorithms/converters/dateconverter.md
 
     - name: Temperature
       items:
         - name: TemperatureConverter
-          href: ../index.md
+          href: algorithms/converters/temperatureconverter.md
 
 - name: Generators
   items:
     - name: GenericGenerator
       items:
         - name: DataGenerator
-          href: ../index.md
+          href: algorithms/generators/datagenerator.md
 
     - name: GuidGenerator
       items:
         - name: GuidGenerator
-          href: ../index.md
+          href: algorithms/generators/guidgenerator.md
 
     - name: PasswordGenerator
       items:
         - name: PasswordGenerator
-          href: ../index.md
+          href: algorithms/generators/passwordgenerator.md
 
 - name: Validators          
   items:
     - name: Date
       items:
         - name: DateValidator
-          href: ../index.md
+          href: algorithms/validators/datevalidator.md
 
     - name: Numeric
       items:
         - name: NumericValidator
-          href: ../index.md
+          href: algorithms/validators/numericvalidator.md
 
     - name: RegexExtensions
       items:
         - name: StringValidator
-          href: ../index.md  
+          href: algorithms/validators/stringvalidator.md
           
 - name: Service Abstractions
   items:
