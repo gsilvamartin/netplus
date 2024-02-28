@@ -71,6 +71,8 @@
           href: converters/temperatureconverter.md
 
 - name: Generators
+  - name: Introduction
+    href: generators/getting-started.md
   items:
     - name: GenericGenerator
       items:
@@ -88,6 +90,8 @@
           href: generators/passwordgenerator.md
 
 - name: Validators
+  - name: Introduction
+    href: validators/getting-started.md
   items:
     - name: Date
       items:
