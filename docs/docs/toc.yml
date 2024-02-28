@@ -5,6 +5,8 @@
   href: getting-started.md
 - name: NetPlus Modules
 - name: Algorithms
+  - name: Introduction
+  - href: algorithms/getting-started.md
   items:
     - name: Comparison
       items:
