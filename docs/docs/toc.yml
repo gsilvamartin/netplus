@@ -6,6 +6,8 @@
 - name: NetPlus Modules
 - name: Algorithms
   items:
+    - name: Introduction
+      href: algorithms/getting-started.md
     - name: Comparison
       items:
         - name: CosineSimilarity
@@ -56,6 +58,8 @@
 
 - name: Converters
   items:
+    - name: Introduction
+      href: converters/getting-started.md
     - name: Date
       items:
         - name: DateTimeConverter
@@ -68,6 +72,9 @@
 
 - name: Generators
   items:
+    - name: Introduction
+      href: generators/getting-started.md
+    
     - name: GenericGenerator
       items:
         - name: DataGenerator
@@ -85,6 +92,9 @@
 
 - name: Validators
   items:
+    - name: Introduction
+      href: validators/getting-started.md
+    
     - name: Date
       items:
         - name: DateValidator
