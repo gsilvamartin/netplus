@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build */*.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test */*.sln --no-build --verbosity normal
