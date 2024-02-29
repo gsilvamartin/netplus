@@ -3,20 +3,17 @@ name: Publish - NetPlus.Algorithms.Graphs
 on:
   push:
     branches:
-      - main
+      - 'release/*'
 
 jobs:
   build-and-push-algorithms-graph:
     runs-on: ubuntu-latest
 
-    outputs:
-      package_version: ${{ steps.pack.outputs.package_version }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup .NET
+      - name: Set up .NET
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '8.0'
@@ -26,8 +23,13 @@ jobs:
           sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
           alias nuget="mono /usr/local/bin/nuget.exe"
 
+      - name: Get tag name
+        id: get_tag
+        run: echo "TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
+
       - name: Build Project and Pack NuGet package
-        run: dotnet pack src/NetPlus.Algorithms/NetPlus.Algorithms.Graphs/NetPlus.Algorithms.Graphs.csproj --configuration Release --output nupkg
+        run: |
+          dotnet pack src/NetPlus.Algorithms/NetPlus.Algorithms.Graphs/NetPlus.Algorithms.Graphs.csproj --configuration Release --output nupkg /p:PackageVersion=$TAG_NAME
 
       - name: Push NuGet Package
         run: |
