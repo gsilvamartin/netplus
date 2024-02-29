@@ -1,0 +1,45 @@
+name: Publish - NetPlus.Algorithms
+
+on:
+  release:
+    types:
+      - created
+    branches:
+      - 'release/*'
+
+jobs:
+  build-and-push-algorithms:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0'
+
+      - name: Install nuget CLI
+        run: |
+          sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          alias nuget="mono /usr/local/bin/nuget.exe"
+
+      - name: Get tag name
+        id: get_tag
+        run: echo "TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
+
+      - name: Build Project and Pack NuGet package
+        run: |
+          dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Graphs/*.csproj --configuration Release
+          dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Comparison/*.csproj --configuration Release
+          dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Search/*.csproj --configuration Release
+          dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Sorting/*.csproj --configuration Release
+          dotnet pack src/NetPlus.Algorithms/*.nuspec -p $TAG_NAME
+
+      - name: Push NuGet Package
+        run: |
+          nupkg_path="*/*.nupkg"
+          nuget push $nupkg_path -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_API_KEY }}
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
