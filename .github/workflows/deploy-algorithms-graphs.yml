@@ -1,7 +1,9 @@
 name: Publish - NetPlus.Algorithms.Graphs
 
 on:
-  push:
+  release:
+    types:
+      - created
     branches:
       - 'release/*'
 
