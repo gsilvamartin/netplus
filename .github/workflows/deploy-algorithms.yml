@@ -6,6 +6,7 @@ on:
       - created
     branches:
       - 'release/*'
+  workflow_dispatch:
 
 jobs:
   build-and-push-algorithms:
