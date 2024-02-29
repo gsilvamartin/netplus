@@ -31,7 +31,7 @@ jobs:
 
       - name: Push NuGet Package
         run: |
-          nupkg_path="nupkg/NetPlus.Algorithms.Search.$NEW_VERSION.nupkg"
+          nupkg_path="*/*.nupkg"
           nuget push $nupkg_path -Source https://api.nuget.org/v3/index.json -ApiKey ${{ secrets.NUGET_API_KEY }}
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
