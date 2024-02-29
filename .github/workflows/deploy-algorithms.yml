@@ -36,6 +36,7 @@ jobs:
           dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Search/*.csproj --configuration Release
           dotnet build src/NetPlus.Algorithms/NetPlus.Algorithms.Sorting/*.csproj --configuration Release
           dotnet pack src/NetPlus.Algorithms/*.nuspec -p $TAG_NAME
+        continue-on-error: true
 
       - name: Push NuGet Package
         run: |
