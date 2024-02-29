@@ -1,16 +1,15 @@
 name: Publish - NetPlus.ServiceAbstractions.Redis
 
 on:
-  push:
+  release:
+    types:
+      - created
     branches:
-      - main
+      - 'release/*'
 
 jobs:
   build-and-push-serviceabstractions-redis:
     runs-on: ubuntu-latest
-
-    outputs:
-      package_version: ${{ steps.pack.outputs.package_version }}
 
     steps:
       - name: Checkout repository
@@ -26,8 +25,13 @@ jobs:
           sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
           alias nuget="mono /usr/local/bin/nuget.exe"
 
+      - name: Get tag name
+        id: get_tag
+        run: echo "TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
+
       - name: Build Project and Pack NuGet package
-        run: dotnet pack src/NetPlus.ServiceAbstractions/NetPlus.ServiceAbstractions.Cache/NetPlus.ServiceAbstractions.Cache.Redis/NetPlus.ServiceAbstractions.Cache.Redis.csproj --configuration Release --output nupkg
+        run: |
+          dotnet pack src/NetPlus.ServiceAbstractions/NetPlus.ServiceAbstractions.Cache/NetPlus.ServiceAbstractions.Cache.Redis/NetPlus.ServiceAbstractions.Cache.Redis.csproj --configuration Release --output nupkg /p:PackageVersion=$TAG_NAME
 
       - name: Push NuGet Package
         run: |
