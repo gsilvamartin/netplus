@@ -13,9 +13,9 @@ name: "CodeQL Code Quality Check"
 
 on:
   push:
-    branches: [ "main", "main-lock" ]
+    branches: [ "main", "main-lock", "release/*" ]
   pull_request:
-    branches: [ "main", "main-lock" ]
+    branches: [ "main", "main-lock", "release/*" ]
 
 jobs:
   analyze:
