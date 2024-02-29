@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>NetPlus.Algorithms</id>
+    <version>1.0.0</version>
+    <title>NetPlus - Algorithms</title>
+    <authors>Guilherme Martin</authors>
+    <owners>Guilherme Martin</owners>
+    <description>NetPlus modules containing common algorithms</description>
+  </metadata>
+  <files>
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Comparison\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Comparison\bin\Release\netstandard2.1\*.dll" target="lib\netstandard2.1" />
+
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Sorting\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Sorting\bin\Release\netstandard2.1\*.dll" target="lib\netstandard2.1" />
+
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Search\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Search\bin\Release\netstandard2.1\*.dll" target="lib\netstandard2.1" />
+
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Graphs\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+    <file src="src\NetPlus.Algorithms\NetPlus.Algorithms.Graphs\bin\Release\netstandard2.1\*.dll" target="lib\netstandard2.1" />
+  </files>
+</package>
