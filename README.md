@@ -31,4 +31,4 @@ Extend your service integration capabilities in `NetPlus.ServiceAbstractions`. B
 
 To seamlessly integrate NetPlus into your project, add the corresponding NuGet package for the desired module. The comprehensive documentation accompanying each module provides detailed insights into functionalities, ensuring a smooth onboarding experience for developers.
 
-We eagerly invite contributions, issue reports, and suggestions from the dynamic .NET community to continually refine and expand NetPlus. Thank you for choosing NetPlus to augment your development journey! 🙌
+We eagerly invite contributions, issue reports, and suggestions from the dynamic .NET community to continually refine and expand NetPlus. Thank you for choosing NetPlus to augment your development journey!
